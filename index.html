@@ -385,7 +385,10 @@
 
 /* subscribe card + social row — the Fontainebleau close */
 .subscribe{padding:70px 24px 0}
-.sub-card{max-width:880px;margin:0 auto;background:#F1EADD;padding:52px 54px 46px;text-align:left}
+.sub-card{max-width:920px;margin:0 auto;background:#F1EADD;padding:40px 52px 40px 40px;text-align:left;display:grid;grid-template-columns:248px 1fr;gap:46px;align-items:stretch}
+.sub-art{min-height:300px}
+.sub-art img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;display:block}
+.sub-main{align-self:center}
 .sub-card h2{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:clamp(34px,4.6vw,46px);margin:16px 0 14px}
 .sub-card p{color:var(--soft);font-size:15.5px;line-height:1.8;max-width:560px}
 .sub-form{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}
@@ -395,7 +398,7 @@
 .sub-form button:hover{background:var(--gold);border-color:var(--gold)}
 .sub-note{margin-top:16px;font-size:12.5px;color:var(--soft)}
 .sub-done{font-family:"Cormorant Garamond",serif;font-size:26px;color:var(--ink);margin-top:26px}
-@media (max-width:720px){ .sub-card{padding:38px 26px 34px} }
+@media (max-width:720px){ .sub-card{grid-template-columns:1fr;padding:26px 26px 34px;gap:24px} .sub-art{min-height:0;height:205px} .sub-art img{object-position:50% 38%} }
 .social-row{display:flex;gap:16px;justify-content:center;padding:34px 0 6px}
 .social-row .soc{width:50px;height:50px;border:1px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--ink);text-decoration:none}
 .social-row a.soc:hover{background:var(--gold);color:#fff}
@@ -422,6 +425,9 @@
 .craft-veil{position:relative;z-index:1;text-align:center;padding:58px 46px;max-width:700px;margin:28px;background:rgba(248,243,234,.88);border:1px solid rgba(169,139,95,.45)}
 .craft-veil p{color:var(--soft);font-size:16.5px;line-height:1.85;max-width:520px;margin:0 auto}
 .craft-veil h2 em{font-style:italic;color:var(--clay)}
+
+.panel-gal.gal4{grid-template-columns:repeat(4,1fr)}
+@media (max-width:720px){ .panel-gal.gal4{grid-template-columns:repeat(2,1fr)} }
 </style>
 <script type="application/ld+json">{
   "@context": "https://schema.org",
@@ -671,6 +677,7 @@
     <a href="https://www.instagram.com/p/BjGetj2BKo7/"><img loading="lazy" decoding="async" src="a-blow-dry-in-progress-at-the-salon.jpg" alt="A blow-dry in progress at the salon"></a>
     <a href="https://www.instagram.com/p/Cif3dtMgD0L/"><img loading="lazy" decoding="async" src="makeup-finished-for-an-occasion.jpg" alt="Makeup finished for an occasion"></a>
     <a href="https://www.instagram.com/p/BjKkso7hRld/"><img loading="lazy" decoding="async" src="long-dark-waves-finished.jpg" alt="Long dark waves, finished"></a>
+    <a href="https://www.instagram.com/arminsalon.spa/"><img loading="lazy" decoding="async" src="highlights-finished-at-armin-salon.jpg" alt="Highlights, finished at Armin Salon"></a>
   </div>
 </section>
 
@@ -696,6 +703,8 @@
 
 <section class="subscribe" aria-label="Subscribe to the salon list">
   <div class="sub-card">
+    <div class="sub-art"><img loading="lazy" decoding="async" src="subscribe-painting.jpg" alt="Leaving Armin with her bag, watercolor"></div>
+    <div class="sub-main">
     <div class="label">The Armin List</div>
     <h2>First to know.</h2>
     <p>Subscribe to receive updates on seasonal rituals, exclusive evenings, and special offers. Armin Salon &amp; Rejuvenation offers hair, skin, and nails composed in a single visit — and the occasional indulgence, delivered first to this list.</p>
@@ -704,6 +713,7 @@
       <button type="submit">Subscribe</button>
     </form>
     <p class="sub-note" id="subNote">One short email at a time. Unsubscribe whenever you like.</p>
+    </div>
   </div>
 </section>
 <section class="social-row" aria-label="Follow the salon">
@@ -761,7 +771,8 @@
         <div class="prod-row"><b>Colour &amp; Correction</b><span>Formulated against your hair&rsquo;s full history</span></div>
         <div class="prod-row"><b>Gloss &amp; Tone</b><span>The finishing seal on every colour</span></div>
     </div>
-    <div class="panel-gal">
+    <div class="panel-gal gal4">
+        <img loading="lazy" decoding="async" src="colour-crew.jpg" alt="Colour at the salon, from magenta to teal to blonde" style="object-position:50% 22%">
         <img loading="lazy" decoding="async" src="copper-colour-finished-at-armin-salon.jpg" alt="Copper colour, finished at the salon">
         <img loading="lazy" decoding="async" src="highlights-finished.jpg" alt="Highlights, finished">
         <img loading="lazy" decoding="async" src="long-blonde-finished.jpg" alt="Long blonde, finished">
