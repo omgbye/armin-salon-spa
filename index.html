@@ -1033,54 +1033,7 @@ footer{padding:88px 5vw 42px}
   <div class="menu-top"><span class="panel-mark" role="button" tabindex="0" title="Back to home">Armin</span><button class="panel-close" id="menuClose">&#10005; &nbsp;Close</button></div>
   <nav class="menu-links">
     <a href="#hair" data-open="hair">Hair</a>
-<script>
-(function(){
-  function openPanel(id){
-    document.querySelectorAll('.panel').forEach(function(p){ p.classList.remove('open'); });
-    var el = document.getElementById('panel-' + id);
-    if(!el) return;
-    el.scrollTop = 0; el.classList.add('open');
-    document.body.classList.add('locked');
-    try{ history.replaceState(null,'','#' + id); }catch(e){}
-  }
-  function closePanels(){
-    document.querySelectorAll('.panel').forEach(function(p){ p.classList.remove('open'); });
-    document.body.classList.remove('locked');
-    try{ history.replaceState(null,'',' '); }catch(e){}
-  }
-  var menuEl = document.getElementById('menuOverlay');
-  function openMenu(){ if(menuEl){ menuEl.classList.add('open'); document.body.classList.add('locked'); } }
-  function closeMenu(){ if(menuEl){ menuEl.classList.remove('open'); if(!document.querySelector('.panel.open')) document.body.classList.remove('locked'); } }
-  var menuBtn = document.getElementById('menuBtn'); if(menuBtn) menuBtn.addEventListener('click', openMenu);
-  var menuClose = document.getElementById('menuClose'); if(menuClose) menuClose.addEventListener('click', closeMenu);
-  document.querySelectorAll('[data-scroll]').forEach(function(a){ a.addEventListener('click', closeMenu); });
-  if((location.hash || '') === '#menu') openMenu();
-  document.querySelectorAll('[data-open]').forEach(function(el){
-    el.addEventListener('click', function(e){
-      if(e.target.closest('a.reserve-link')) return;
-      if(el.tagName === 'A') e.preventDefault();
-      closeMenu(); openPanel(el.getAttribute('data-open'));
-    });
-  });
-  document.querySelectorAll('[data-close]').forEach(function(b){ b.addEventListener('click', closePanels); });
-  document.addEventListener('keydown', function(e){ if(e.key === 'Escape'){ closePanels(); closeMenu(); } });
-  var ids = ['hair','colour','skin','nails','occasions','rejuvenation'];
-  var h = (location.hash || '').replace('#','').replace('panel-','');
-  if(ids.indexOf(h) > -1) openPanel(h);
-  // quiet reveal on scroll
-  var targets = document.querySelectorAll('.intro, .services-head, .atmosphere, .products-in, .gallery-head, .gallery-grid a, .visit > div');
-  targets.forEach(function(el){ el.classList.add('rv'); });
-  if('IntersectionObserver' in window){
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
-    }, {threshold: 0.1});
-    targets.forEach(function(el){ io.observe(el); });
-  } else {
-    targets.forEach(function(el){ el.classList.add('in'); });
-  }
-  setTimeout(function(){ targets.forEach(function(el){ el.classList.add('in'); }); }, 2600);
-})();
-</script>
+
 
 
     <a href="#colour" data-open="colour">Colour</a>
@@ -1408,6 +1361,54 @@ document.addEventListener('gesturestart', function(e){ e.preventDefault(); });
     m.addEventListener('click', go);
     m.addEventListener('keydown', function(e){ if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); go(); } });
   });
+})();
+</script>
+<script>
+(function(){
+  function openPanel(id){
+    document.querySelectorAll('.panel').forEach(function(p){ p.classList.remove('open'); });
+    var el = document.getElementById('panel-' + id);
+    if(!el) return;
+    el.scrollTop = 0; el.classList.add('open');
+    document.body.classList.add('locked');
+    try{ history.replaceState(null,'','#' + id); }catch(e){}
+  }
+  function closePanels(){
+    document.querySelectorAll('.panel').forEach(function(p){ p.classList.remove('open'); });
+    document.body.classList.remove('locked');
+    try{ history.replaceState(null,'',' '); }catch(e){}
+  }
+  var menuEl = document.getElementById('menuOverlay');
+  function openMenu(){ if(menuEl){ menuEl.classList.add('open'); document.body.classList.add('locked'); } }
+  function closeMenu(){ if(menuEl){ menuEl.classList.remove('open'); if(!document.querySelector('.panel.open')) document.body.classList.remove('locked'); } }
+  var menuBtn = document.getElementById('menuBtn'); if(menuBtn) menuBtn.addEventListener('click', openMenu);
+  var menuClose = document.getElementById('menuClose'); if(menuClose) menuClose.addEventListener('click', closeMenu);
+  document.querySelectorAll('[data-scroll]').forEach(function(a){ a.addEventListener('click', closeMenu); });
+  if((location.hash || '') === '#menu') openMenu();
+  document.querySelectorAll('[data-open]').forEach(function(el){
+    el.addEventListener('click', function(e){
+      if(e.target.closest('a.reserve-link')) return;
+      if(el.tagName === 'A') e.preventDefault();
+      closeMenu(); openPanel(el.getAttribute('data-open'));
+    });
+  });
+  document.querySelectorAll('[data-close]').forEach(function(b){ b.addEventListener('click', closePanels); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape'){ closePanels(); closeMenu(); } });
+  var ids = ['hair','colour','skin','nails','occasions','rejuvenation'];
+  var h = (location.hash || '').replace('#','').replace('panel-','');
+  if(ids.indexOf(h) > -1) openPanel(h);
+  // quiet reveal on scroll
+  var targets = document.querySelectorAll('.intro, .services-head, .atmosphere, .products-in, .gallery-head, .gallery-grid a, .visit > div');
+  targets.forEach(function(el){ el.classList.add('rv'); });
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, {threshold: 0.1});
+    targets.forEach(function(el){ io.observe(el); });
+  } else {
+    targets.forEach(function(el){ el.classList.add('in'); });
+  }
+  setTimeout(function(){ targets.forEach(function(el){ el.classList.add('in'); }); }, 2600);
 })();
 </script>
 </body>
