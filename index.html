@@ -375,6 +375,9 @@
   .svc-track .svc a.reserve-link{margin-left:19px;margin-bottom:20px}
 }
 @media (prefers-reduced-motion: reduce){ .svc-track{animation-duration:200s} }
+
+.svc-marquee.hold .svc-track{animation-play-state:paused}
+.svc-track .svc a.reserve-link, .svc-track .svc h3, .svc-track .svc .svc-photo{cursor:pointer}
 </style>
 <script type="application/ld+json">{
   "@context": "https://schema.org",
@@ -1044,5 +1047,17 @@
 })();
 </script>
 
+<script>
+(function(){
+  var mq = document.querySelector('.svc-marquee'); if(!mq) return;
+  var t;
+  function hold(){ mq.classList.add('hold'); clearTimeout(t); }
+  function release(){ clearTimeout(t); t = setTimeout(function(){ mq.classList.remove('hold'); }, 2200); }
+  mq.addEventListener('touchstart', hold, {passive:true});
+  mq.addEventListener('touchend', release, {passive:true});
+  mq.addEventListener('pointerdown', hold);
+  mq.addEventListener('pointerup', release);
+})();
+</script>
 </body>
 </html>
