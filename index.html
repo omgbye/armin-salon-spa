@@ -20,6 +20,9 @@
 <meta property="og:description" content="Armin Salon & Rejuvenation in South Miami — precision haircuts, expert colour, facials, massage and nails, minutes from Coral Gables and Coconut Grove. By appointment: (305) 663-7171.">
 <meta property="og:url" content="https://arminspa.com/">
 <meta property="og:image" content="https://arminspa.com/a-watercolor-painting-of-the-armin-salon-s.jpg">
+<meta property="og:image:width" content="2400">
+<meta property="og:image:height" content="1396">
+<meta property="og:image:alt" content="Watercolor painting of the Armin Salon &amp; Rejuvenation storefront in South Miami">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Armin Salon &amp; Rejuvenation — South Miami">
@@ -260,6 +263,59 @@
     .menu-links a{display:block;font-family:"Cormorant Garamond",serif;font-size:36px;font-weight:500;color:var(--ink);text-decoration:none;padding:10px 0}
     .menu-foot{text-align:center;padding:24px 24px 44px;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--soft);line-height:2.2}
   }
+
+  /* booking experience */
+  .book{position:fixed;inset:0;z-index:160;background:var(--ivory);overflow-y:auto;opacity:0;visibility:hidden;transform:translateY(18px);transition:opacity .55s ease,transform .55s ease,visibility 0s linear .55s}
+  .book.open{opacity:1;visibility:visible;transform:none;transition:opacity .55s ease,transform .55s ease}
+  .book-body{max-width:860px;margin:0 auto;padding:52px 24px 90px;text-align:center}
+  .book-body h2{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:clamp(36px,5vw,52px);line-height:1.08;color:var(--ink);margin:14px 0 14px}
+  .book-body h2 em{font-style:italic;color:var(--clay)}
+  .book-intro{color:#4A443C;font-size:16.5px;line-height:1.8;max-width:560px;margin:0 auto}
+  .orcall{margin:30px auto 6px;max-width:560px;border:1px solid var(--line);padding:18px 22px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .orcall span{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--soft)}
+  .orcall a{font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:var(--clay);text-decoration:none;border-bottom:1px solid var(--clay);padding-bottom:3px;white-space:nowrap}
+  .step{margin-top:46px}
+  .step-label{font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+  .svc-chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+  .chip{border:1px solid var(--line);padding:13px 20px;font-family:"Jost",sans-serif;font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;cursor:pointer;background:transparent;color:var(--ink);transition:all .25s}
+  .chip:hover{border-color:var(--gold)}
+  .chip.sel{background:var(--ink);color:var(--ivory);border-color:var(--ink)}
+  .cal{max-width:520px;margin:0 auto}
+  .cal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+  .cal-head b{font-family:"Cormorant Garamond",serif;font-size:27px;font-weight:500;color:var(--ink)}
+  .cal-nav{background:none;border:1px solid var(--line);width:42px;height:42px;cursor:pointer;font-size:17px;color:var(--ink)}
+  .cal-nav:disabled{opacity:.3;cursor:default}
+  .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+  .cal-dow{font-size:10px;letter-spacing:.22em;color:var(--soft);text-align:center;padding:6px 0;text-transform:uppercase}
+  .day{aspect-ratio:1;border:1px solid transparent;background:transparent;font-family:"Jost",sans-serif;font-size:14.5px;cursor:pointer;color:var(--ink);transition:all .2s}
+  .day:hover{border-color:var(--gold)}
+  .day.dim{visibility:hidden}
+  .day.past{color:#CFC5AE;cursor:default}
+  .day.past:hover{border-color:transparent}
+  .day.closed{color:#CFC5AE;opacity:.6;cursor:pointer}
+  .day.today{box-shadow:inset 0 0 0 1px var(--gold)}
+  .day.sel{background:var(--ink);color:var(--ivory)}
+  .slots{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;max-width:660px;margin:0 auto}
+  .slot{border:1px solid var(--line);background:transparent;padding:12px 19px;font-family:"Jost",sans-serif;font-size:13px;letter-spacing:.1em;cursor:pointer;color:var(--ink);transition:all .2s}
+  .slot:hover{border-color:var(--gold)}
+  .slot.sel{background:var(--clay);border-color:var(--clay);color:#fff}
+  .slot.booked{opacity:.35;text-decoration:line-through;cursor:not-allowed}
+  .slot.booked:hover{border-color:var(--line)}
+  .slots-note{color:#4A443C;font-size:15.5px;line-height:1.75;max-width:480px;margin:0 auto}
+  .slots-note a{color:var(--clay)}
+  .book-form{max-width:520px;margin:0 auto;text-align:left}
+  .field{margin-bottom:24px}
+  .field label{display:block;font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--soft);margin-bottom:6px}
+  .field input,.field textarea{width:100%;border:none;border-bottom:1px solid var(--line);background:transparent;font-family:"Cormorant Garamond",serif;font-size:21px;padding:6px 2px;color:var(--ink);outline:none;border-radius:0}
+  .field input:focus,.field textarea:focus{border-color:var(--gold)}
+  .book-confirm{opacity:.35;pointer-events:none}
+  .book-confirm.ready{opacity:1;pointer-events:auto}
+  .book-fine{margin-top:20px;font-size:12.5px;color:#8B8172;line-height:1.7}
+  .book-done{display:none}
+  .book-done.show{display:block}
+  .done-mark{width:64px;height:64px;margin:6px auto 22px;border:1px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;color:var(--gold)}
+  .done-sum{font-family:"Cormorant Garamond",serif;font-size:23px;line-height:1.55;color:var(--ink);max-width:520px;margin:0 auto}
+  @media (max-width:720px){ .orcall{justify-content:center;text-align:center} .day{font-size:13.5px} }
 </style>
 <script type="application/ld+json">
 {
@@ -340,7 +396,7 @@
     <a href="#nails" data-open="nails">Nails</a>
     <a href="#products">Products</a>
     <a href="#visit">Visit</a>
-    <a class="reserve" href="tel:+13056637171">Reserve</a>
+    <a class="reserve" href="#book" data-book>Reserve</a>
   </nav>
 </header>
 
@@ -351,7 +407,7 @@
   <div class="intro-est">South Miami</div>
   <h1>Miami&rsquo;s finest<br><em>salon &amp; spa.</em></h1>
   
-  <a class="btn btn-luxe" href="tel:+13056637171">Reserve an Appointment</a>
+  <a class="btn btn-luxe" href="#book" data-book>Reserve an Appointment</a>
 </section>
 
 <section class="intro">
@@ -371,35 +427,35 @@
       <h3>Hair</h3>
       <div class="items">Cuts · Blowout · Styling</div>
       <p>The cut and finish the neighbourhood trusts — polished, wearable, unmistakably yours.</p>
-      <a class="reserve-link" href="tel:+13056637171">Reserve Hair</a>
+      <a class="reserve-link" href="#book" data-book>Reserve Hair</a>
     </article>
     <article class="svc"> data-open="colour"
       <div class="svc-photo"><img src="copper-colour-finished-at-armin-salon.jpg" alt="Copper colour, finished at Armin Salon"></div>
       <h3>Colour</h3>
       <div class="items">Balayage · Face-Framing · Blonde Refresh</div>
       <p>Colour with dimension and light in it — soft where it should be, bright where it counts.</p>
-      <a class="reserve-link" href="tel:+13056637171">Reserve Colour</a>
+      <a class="reserve-link" href="#book" data-book>Reserve Colour</a>
     </article>
     <article class="svc"> data-open="skin"
       <div class="svc-photo"><img src="a-facial-treatment-at-the-salon.jpg" alt="A facial treatment at the salon"></div>
       <h3>Skin &amp; Spa</h3>
       <div class="items">Facials · Massage · Waxing</div>
       <p>Quiet rooms, warm hands, and skin that looks rested — because it finally is.</p>
-      <a class="reserve-link" href="tel:+13056637171">Reserve Skin</a>
+      <a class="reserve-link" href="#book" data-book>Reserve Skin</a>
     </article>
     <article class="svc"> data-open="nails"
       <div class="svc-photo"><img src="a-finished-manicure-at-armin-salon.jpg" alt="A finished manicure at Armin Salon"></div>
       <h3>Nails</h3>
       <div class="items">Acrylic · Dip Powder · Manicure &amp; Pedicure</div>
       <p>Immaculate, understated, and finished properly — down to the last detail.</p>
-      <a class="reserve-link" href="tel:+13056637171">Reserve Nails</a>
+      <a class="reserve-link" href="#book" data-book>Reserve Nails</a>
     </article>
     <article class="svc"> data-open="occasions"
       <div class="svc-photo"><img src="an-evening-updo-styled-at-armin-salon.jpg" alt="An evening updo, styled at Armin Salon"></div>
       <h3>Occasions</h3>
       <div class="items">Makeup · Bridal · Packages</div>
       <p>For the evenings that matter — composed, photographed beautifully, and entirely you.</p>
-      <a class="reserve-link" href="tel:+13056637171">Reserve the Occasion</a>
+      <a class="reserve-link" href="#book" data-book>Reserve the Occasion</a>
     </article>
     <article class="svc"> data-open="rejuvenation"
       <div class="svc-photo"><img src="a-blonde-bob-cut-and-finished-at-armin-sal.jpg" alt="A blonde bob, cut and finished at Armin Salon"></div>
@@ -502,7 +558,7 @@
         <img src="a-styled-cut-with-volume-2.jpg" alt="A styled cut with volume">
         <img src="blonde-finished-in-the-chair.jpg" alt="Blonde, finished in the chair">
     </div>
-    <a class="btn btn-luxe" href="tel:+13056637171">Reserve Hair</a>
+    <a class="btn btn-luxe" href="#book" data-book>Reserve Hair</a>
     <div class="panel-foot">Armin — Salon &amp; Rejuvenation · South Miami</div>
   </div>
 </div>
@@ -527,7 +583,7 @@
         <img src="highlights-finished.jpg" alt="Highlights, finished">
         <img src="long-blonde-finished.jpg" alt="Long blonde, finished">
     </div>
-    <a class="btn btn-luxe" href="tel:+13056637171">Reserve Colour</a>
+    <a class="btn btn-luxe" href="#book" data-book>Reserve Colour</a>
     <div class="panel-foot">Armin — Salon &amp; Rejuvenation · South Miami</div>
   </div>
 </div>
@@ -550,7 +606,7 @@
         <img src="a-guest-of-the-salon.jpg" alt="A guest of the salon">
         <img src="makeup-and-skin-finished.jpg" alt="Makeup and skin, finished">
     </div>
-    <a class="btn btn-luxe" href="tel:+13056637171">Reserve Skin</a>
+    <a class="btn btn-luxe" href="#book" data-book>Reserve Skin</a>
     <div class="panel-foot">Armin — Salon &amp; Rejuvenation · South Miami</div>
   </div>
 </div>
@@ -574,7 +630,7 @@
         <img src="a-pale-manicure-finished.jpg" alt="A pale manicure, finished">
         <img src="pink-with-a-plaid-detail.jpg" alt="Pink, with a plaid detail">
     </div>
-    <a class="btn btn-luxe" href="tel:+13056637171">Reserve Nails</a>
+    <a class="btn btn-luxe" href="#book" data-book>Reserve Nails</a>
     <div class="panel-foot">Armin — Salon &amp; Rejuvenation · South Miami</div>
   </div>
 </div>
@@ -598,7 +654,7 @@
         <img src="makeup-and-skin-finished.jpg" alt="Makeup, finished">
         <img src="a-guest-of-the-salon.jpg" alt="Hair, finished for the evening">
     </div>
-    <a class="btn btn-luxe" href="tel:+13056637171">Reserve the Occasion</a>
+    <a class="btn btn-luxe" href="#book" data-book>Reserve the Occasion</a>
     <div class="panel-foot">Armin — Salon &amp; Rejuvenation · South Miami</div>
   </div>
 </div>
@@ -621,7 +677,7 @@
         <img src="a-short-cut-in-profile-at-the-salon.jpg" alt="A short cut in profile, at the salon">
         <img src="a-guest-finished-in-the-salon.jpg" alt="A guest, finished, in the salon">
     </div>
-    <a class="btn btn-luxe" href="tel:+13056637171">Plan a Visit</a>
+    <a class="btn btn-luxe" href="#book" data-book>Plan a Visit</a>
     <div class="panel-foot">Armin — Salon &amp; Rejuvenation · South Miami</div>
   </div>
 </div>
@@ -689,6 +745,189 @@
   </nav>
   <div class="menu-foot">5910 SW 73rd Street · South Miami<br><a href="tel:+13056637171" style="color:var(--clay);text-decoration:none">305-663-7171</a></div>
 </div>
-<a class="bottom-cta" href="tel:+13056637171">Reserve an Appointment</a>
+<a class="bottom-cta" href="#book" data-book>Reserve an Appointment</a>
+
+<div class="book" id="bookOverlay" role="dialog" aria-label="Reserve an appointment">
+  <div class="panel-top"><span class="panel-mark">Armin</span><button class="panel-close" id="bookClose">&#10005; &nbsp;Return</button></div>
+  <div class="book-body">
+    <div id="bookForm">
+      <div class="label">Reservations</div>
+      <h2>Reserve an <em>appointment.</em></h2>
+      <p class="book-intro">Choose a service, a day, and an hour. We will call to confirm — that is all there is to it.</p>
+      <div class="orcall"><span>Prefer to talk?</span><a href="tel:+13056637171">Or simply call 305-663-7171</a></div>
+
+      <div class="step">
+        <div class="step-label">One — The Service</div>
+        <div class="svc-chips" id="svcChips"></div>
+      </div>
+
+      <div class="step">
+        <div class="step-label">Two — The Day</div>
+        <div class="cal">
+          <div class="cal-head"><button class="cal-nav" id="calPrev" aria-label="Previous month">&#8249;</button><b id="calTitle"></b><button class="cal-nav" id="calNext" aria-label="Next month">&#8250;</button></div>
+          <div class="cal-grid" id="calGrid"></div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-label">Three — The Hour</div>
+        <div class="slots" id="slots"><p class="slots-note">Choose a day above, and the available hours will appear here.</p></div>
+      </div>
+
+      <div class="step">
+        <div class="step-label">Four — Your Details</div>
+        <div class="book-form">
+          <div class="field"><label for="bkName">Your name</label><input id="bkName" type="text" autocomplete="name" placeholder="Full name"></div>
+          <div class="field"><label for="bkPhone">Phone</label><input id="bkPhone" type="tel" autocomplete="tel" placeholder="(305) 555-0123"></div>
+          <div class="field"><label for="bkNotes">Anything we should know — optional</label><input id="bkNotes" type="text" placeholder="Occasion, stylist, inspiration…"></div>
+        </div>
+        <a class="btn btn-luxe book-confirm" id="bookConfirm" href="#">Request Appointment</a>
+        <p class="book-fine">This sends a request, not a booking — the salon confirms every appointment personally, by phone.</p>
+      </div>
+    </div>
+
+    <div class="book-done" id="bookDone">
+      <div class="done-mark">&#10003;</div>
+      <div class="label">Request Received</div>
+      <h2>Consider it <em>handled.</em></h2>
+      <p class="done-sum" id="doneSum"></p>
+      <p class="book-fine" style="margin-top:22px">Need it sooner, or prefer a voice? <a href="tel:+13056637171" style="color:var(--clay)">Call 305-663-7171</a>.</p>
+      <a class="btn btn-luxe" href="#" id="doneClose">Done</a>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var SERVICES = ['Haircut & Styling','Colour & Balayage','Skin & Spa','Nails','Occasions & Bridal','The Full Visit'];
+  var state = { svc:null, date:null, time:null };
+  var overlay = document.getElementById('bookOverlay');
+  var viewDate = new Date(); viewDate.setDate(1);
+  var today = new Date(); today.setHours(0,0,0,0);
+  var MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  var DOWS = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+
+  function openBook(){ overlay.classList.add('open'); document.body.classList.add('locked'); }
+  function closeBook(){ overlay.classList.remove('open'); if(!document.querySelector('.panel.open')) document.body.classList.remove('locked'); }
+  document.querySelectorAll('[data-book]').forEach(function(el){
+    el.addEventListener('click', function(e){ e.preventDefault(); openBook(); });
+  });
+  document.getElementById('bookClose').addEventListener('click', closeBook);
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeBook(); });
+
+  // services
+  var chips = document.getElementById('svcChips');
+  SERVICES.forEach(function(name, i){
+    var b = document.createElement('button'); b.className = 'chip'; b.textContent = name;
+    b.addEventListener('click', function(){ pickService(i); if(state.date) renderSlots(); });
+    chips.appendChild(b);
+  });
+  function pickService(i){
+    state.svc = i;
+    chips.querySelectorAll('.chip').forEach(function(c, j){ c.classList.toggle('sel', i === j); });
+    validate();
+  }
+
+  // calendar
+  var grid = document.getElementById('calGrid'), title = document.getElementById('calTitle');
+  var prev = document.getElementById('calPrev'), next = document.getElementById('calNext');
+  function renderCal(){
+    title.textContent = MONTHS[viewDate.getMonth()] + ' ' + viewDate.getFullYear();
+    var first = new Date(viewDate.getFullYear(), viewDate.getMonth(), 1);
+    var startDow = first.getDay();
+    var days = new Date(viewDate.getFullYear(), viewDate.getMonth()+1, 0).getDate();
+    var html = '';
+    ['Su','Mo','Tu','We','Th','Fr','Sa'].forEach(function(d){ html += '<div class="cal-dow">' + d + '</div>'; });
+    for(var i=0;i<startDow;i++) html += '<button class="day dim" disabled></button>';
+    for(var d=1; d<=days; d++){
+      var dt = new Date(viewDate.getFullYear(), viewDate.getMonth(), d);
+      var cls = 'day';
+      if(dt < today) cls += ' past';
+      if(dt.getTime() === today.getTime()) cls += ' today';
+      if(dt.getDay() === 0 || dt.getDay() === 1) cls += ' closed';
+      if(state.date && dt.getTime() === state.date.getTime()) cls += ' sel';
+      html += '<button class="' + cls + '" data-day="' + d + '">' + d + '</button>';
+    }
+    grid.innerHTML = html;
+    grid.querySelectorAll('.day[data-day]').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var dt = new Date(viewDate.getFullYear(), viewDate.getMonth(), parseInt(btn.getAttribute('data-day'), 10));
+        if(dt < today) return;
+        pickDay(dt);
+      });
+    });
+    var minView = new Date(today.getFullYear(), today.getMonth(), 1);
+    prev.disabled = viewDate <= minView;
+    var maxView = new Date(today.getFullYear(), today.getMonth()+2, 1);
+    next.disabled = viewDate >= maxView;
+  }
+  prev.addEventListener('click', function(){ viewDate.setMonth(viewDate.getMonth()-1); renderCal(); });
+  next.addEventListener('click', function(){ viewDate.setMonth(viewDate.getMonth()+1); renderCal(); });
+  function pickDay(dt){
+    state.date = new Date(dt.getFullYear(), dt.getMonth(), dt.getDate());
+    state.time = null;
+    renderCal(); renderSlots(); validate();
+  }
+
+  // time slots with fictitious bookings
+  function slotsFor(dt){
+    var dow = dt.getDay();
+    if(dow === 0 || dow === 1) return null;
+    var last = (dow === 4 || dow === 5) ? 19 : 18;
+    var out = [];
+    for(var h=9; h<=last; h++){
+      var seed = (dt.getDate()*7 + (dt.getMonth()+1)*13 + h*5 + (state.svc||0)*3) % 10;
+      out.push({ t: fmtHour(h), booked: seed < 3 });
+    }
+    return out;
+  }
+  function fmtHour(h){ var ap = h >= 12 ? 'PM' : 'AM'; var hh = h % 12; if(hh === 0) hh = 12; return hh + ':00 ' + ap; }
+  var slotsEl = document.getElementById('slots');
+  function renderSlots(){
+    if(!state.date){ slotsEl.innerHTML = '<p class="slots-note">Choose a day above, and the available hours will appear here.</p>'; return; }
+    var list = slotsFor(state.date);
+    if(!list){ slotsEl.innerHTML = '<p class="slots-note">Sundays and Mondays are by appointment only. <a href="tel:+13056637171">Call 305-663-7171</a> and we will arrange it.</p>'; return; }
+    slotsEl.innerHTML = '';
+    list.forEach(function(sl){
+      var b = document.createElement('button');
+      b.className = 'slot' + (sl.booked ? ' booked' : '');
+      b.textContent = sl.booked ? sl.t + ' · Booked' : sl.t;
+      if(!sl.booked) b.addEventListener('click', function(){ pickTime(b); state.time = sl.t; validate(); });
+      slotsEl.appendChild(b);
+    });
+  }
+  function pickTime(btn){
+    slotsEl.querySelectorAll('.slot').forEach(function(x){ x.classList.remove('sel'); });
+    if(btn) btn.classList.add('sel');
+  }
+
+  // details + confirm
+  var confirmBtn = document.getElementById('bookConfirm');
+  function validate(){
+    var ok = state.svc !== null && state.date && state.time &&
+      document.getElementById('bkName').value.trim().length > 1 &&
+      document.getElementById('bkPhone').value.replace(/\D/g,'').length >= 7;
+    confirmBtn.classList.toggle('ready', !!ok);
+  }
+  ['bkName','bkPhone'].forEach(function(id){ document.getElementById(id).addEventListener('input', validate); });
+  confirmBtn.addEventListener('click', function(e){
+    e.preventDefault();
+    var name = document.getElementById('bkName').value.trim();
+    var first = name.split(' ')[0] || name;
+    var when = DOWS[state.date.getDay()] + ', ' + MONTHS[state.date.getMonth()] + ' ' + state.date.getDate();
+    document.getElementById('doneSum').innerHTML =
+      SERVICES[state.svc] + ' — ' + when + ' at ' + state.time + '.<br>' +
+      'Thank you, ' + first + '. The salon will call ' + document.getElementById('bkPhone').value.trim() + ' shortly to confirm.';
+    document.getElementById('bookForm').style.display = 'none';
+    document.getElementById('bookDone').classList.add('show');
+    overlay.scrollTop = 0;
+  });
+  document.getElementById('doneClose').addEventListener('click', function(e){ e.preventDefault(); closeBook(); });
+
+  if((location.hash || '') === '#book') openBook();
+  renderCal();
+})();
+</script>
+
 </body>
 </html>
