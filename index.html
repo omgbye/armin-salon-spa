@@ -382,6 +382,25 @@
 .svc-marquee.hold .svc-track{animation-play-state:paused}
 .svc-track .svc a.reserve-link, .svc-track .svc h3, .svc-track .svc .svc-photo{cursor:pointer}
 
+
+/* subscribe + footer social/legal — the Fontainebleau close */
+.subscribe{max-width:560px;margin:0 auto;padding:64px 24px 8px;text-align:center}
+.subscribe h2{font-family:"Cormorant Garamond",serif;font-weight:400;font-size:34px;margin:14px 0 8px}
+.subscribe p{color:var(--soft);font-size:15px;line-height:1.75;max-width:400px;margin:0 auto}
+.sub-form{display:flex;gap:10px;justify-content:center;margin-top:24px;flex-wrap:wrap}
+.sub-form input{flex:1 1 240px;max-width:320px;padding:13px 18px;border:1px solid var(--line);border-radius:999px;background:#FFFDF8;font:400 14.5px Inter,sans-serif;color:var(--ink);outline:none}
+.sub-form input:focus{border-color:var(--gold)}
+.sub-form button{padding:13px 28px;border-radius:999px;border:1px solid var(--ink);background:var(--ink);color:#F8F3EA;font:500 11px Inter,sans-serif;letter-spacing:.26em;text-transform:uppercase;cursor:pointer}
+.sub-form button:hover{background:var(--gold);border-color:var(--gold)}
+.sub-note{margin-top:14px;font-size:12.5px;color:var(--soft)}
+.sub-done{font-family:"Cormorant Garamond",serif;font-size:24px;color:var(--ink);margin-top:24px}
+.foot-social{display:flex;gap:12px;justify-content:center;margin:20px 0 4px}
+.foot-social .soc{width:38px;height:38px;border:1px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#F3EDE2;text-decoration:none}
+.foot-social a.soc:hover{background:var(--gold);color:#fff}
+.foot-social .soc-off{opacity:.42}
+.foot-legal{margin-top:12px;font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+.foot-legal a{color:var(--soft);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:2px}
+.foot-legal span{margin:0 10px;color:var(--gold)}
 </style>
 <script type="application/ld+json">{
   "@context": "https://schema.org",
@@ -650,13 +669,28 @@
   </div>
 </section>
 
+<section class="subscribe" aria-label="Subscribe to the salon list">
+  <div class="label">The Armin List</div>
+  <h2>First to know.</h2>
+  <p>Openings, seasonal rituals, and the occasional indulgence — by email, and never often.</p>
+  <form class="sub-form" id="subForm" novalidate>
+    <input type="email" id="subEmail" placeholder="Your email address" autocomplete="email" aria-label="Email address">
+    <button type="submit">Subscribe</button>
+  </form>
+  <p class="sub-note" id="subNote">One short email at a time. Unsubscribe whenever you like.</p>
+</section>
 <footer>
   <div class="foot-mark">Armin</div>
   <div class="foot-sub">Salon &amp; Rejuvenation</div>
+  <div class="foot-social">
+    <span class="soc soc-off" role="img" aria-label="Facebook (link coming soon)" title="Facebook"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7h2.4l.4-3h-2.8V9.1c0-.9.3-1.5 1.6-1.5h1.3V4.9c-.3 0-1.1-.1-2-.1-2 0-3.4 1.2-3.4 3.5V11H8.5v3H11v7h2.5z"/></svg></span>
+    <a class="soc" href="https://www.instagram.com/arminsalon.spa/" target="_blank" rel="noopener" aria-label="Instagram — @arminsalon.spa"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.05" fill="currentColor" stroke="none"/></svg></a>
+  </div>
   <div class="foot-rule"></div>
   <div class="foot-row"><span>5910 SW 73rd St, South Miami</span><span>305-663-7171</span><span><a href="https://www.instagram.com/arminsalon.spa/" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--gold)">Instagram — @arminsalon.spa</a></span></div>
   <p class="foot-credit">Website created by Angel Reyes — Demo</p>
   <p class="foot-note">Photography is the salon&rsquo;s own, from its Instagram @arminsalon.spa</p>
+  <p class="foot-legal"><a href="privacy.html">Privacy Policy</a><span aria-hidden="true">·</span><a href="terms.html">Terms of Use</a></p>
 </footer>
 
 
@@ -1067,6 +1101,19 @@
 // frame lock: a two-finger pinch is ignored, so the page never leaves its frame; single-finger scrolling is untouched
 document.addEventListener('touchmove', function(e){ if(e.touches.length > 1){ e.preventDefault(); } }, {passive:false});
 document.addEventListener('gesturestart', function(e){ e.preventDefault(); });
+</script>
+<script>
+(function(){
+  var f = document.getElementById('subForm'); if(!f) return;
+  f.addEventListener('submit', function(e){
+    e.preventDefault();
+    var em = document.getElementById('subEmail'), note = document.getElementById('subNote');
+    var v = (em.value || '').trim();
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)){ note.textContent = 'That email looks incomplete — one more look?'; em.focus(); return; }
+    f.outerHTML = '<p class="sub-done">You are on the list. Welcome to the house.</p>';
+    note.textContent = 'We will write only when there is something worth your time.';
+  });
+})();
 </script>
 </body>
 </html>
