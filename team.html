@@ -35,11 +35,14 @@ p{font-size:16.5px;line-height:1.85;color:#3E372C;margin:0 auto 20px;max-width:6
 footer{background:var(--deep);color:#A79B8A;text-align:center;padding:34px 24px 38px;margin-top:64px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;line-height:2.1}
 footer a{color:#EDE7DC;text-decoration:none;border-bottom:1px solid rgba(169,139,95,.65);padding-bottom:2px}
 
-.sec-label{font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);margin:52px 0 24px}
+.sec-label{display:flex;align-items:center;justify-content:center;gap:18px;font-size:11px;letter-spacing:.34em;text-indent:.34em;text-transform:uppercase;color:var(--gold);margin:56px 0 26px}
+.sec-label::before,.sec-label::after{content:'';height:1px;width:58px;background:linear-gradient(90deg,transparent,rgba(169,139,95,.75))}
+.sec-label::after{background:linear-gradient(90deg,rgba(169,139,95,.75),transparent)}
 .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:36px 26px;max-width:900px;margin:0 auto}
-.member .portrait{aspect-ratio:4/5;background:linear-gradient(160deg,#F3EDE2,#EAE1D2);box-shadow:inset 0 0 0 1px rgba(169,139,95,.45), inset 0 0 0 9px #FBF8F2, inset 0 0 0 10px rgba(169,139,95,.30)}
+.member .portrait{aspect-ratio:4/5;background:radial-gradient(120% 90% at 50% 30%,#F6F1E6 0%,#EFE7D7 58%,#E7DCC6 100%);box-shadow:0 26px 34px -24px rgba(29,26,22,.38), inset 0 0 0 1px rgba(169,139,95,.5), inset 0 0 0 9px #FBF8F2, inset 0 0 0 10px rgba(169,139,95,.35), inset 0 0 0 12px rgba(255,253,248,.7)}
 .member h3{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:22px;margin:16px 0 4px}
 .member .role{font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--soft)}
+.member .role::before{content:'';display:block;width:7px;height:7px;background:var(--gold);transform:rotate(45deg);margin:0 auto 10px}
 .member .mini-rule{width:34px;height:1px;background:var(--gold);margin:10px auto 0}
 .ops-one{max-width:290px;margin:0 auto}
 .sample-note{font-size:13.5px;color:var(--soft);letter-spacing:.04em;margin-top:10px}
@@ -54,6 +57,9 @@ footer a{color:#EDE7DC;text-decoration:none;border-bottom:1px solid rgba(169,139
 <h1>The people behind <em>the chair.</em></h1>
 <div class="rule"></div>
 <p class="sample-note">Twenty chairs, one house. A sample of the page &mdash; portraits and names join as the house provides them.</p>
+
+<div class="sec-label">Ownership</div>
+<div class="ops-one"><div class="member"><div class="portrait"></div><h3>Armin</h3><div class="role">Founder &amp; Owner</div><div class="mini-rule"></div></div></div>
 
 <div class="sec-label">Operations</div>
 <div class="ops-one"><div class="member"><div class="portrait"></div><h3>Lazaro</h3><div class="role">Operations Director</div><div class="mini-rule"></div></div></div>
