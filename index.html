@@ -111,7 +111,7 @@
 
   /* masthead */
   header.masthead{text-align:center;padding:34px 20px 0}
-  .wordmark{font-size:clamp(40px,6.8vw,64px);font-weight:500;letter-spacing:.52em;text-indent:.52em;text-transform:uppercase;line-height:1;background:linear-gradient(100deg,#1D1A16 40%,#8C6D3F 50%,#1D1A16 60%);background-size:230% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;animation:wordShine 10s ease-in-out infinite}
+  .wordmark{font-size:clamp(40px,6.8vw,64px);font-weight:500;letter-spacing:.52em;text-indent:.52em;text-transform:uppercase;line-height:1;background:linear-gradient(100deg,#1D1A16 32%,#7A5C2E 43%,#D8B878 50%,#7A5C2E 57%,#1D1A16 68%);background-size:230% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;animation:wordShine 8.5s ease-in-out infinite;filter:drop-shadow(0 0 15px rgba(201,168,106,.20))}
   .wordmark-sub{margin-top:12px;font-size:11px;letter-spacing:.46em;text-indent:.46em;text-transform:uppercase;color:var(--soft)}
   .rule{width:56px;height:1px;background:var(--gold);margin:22px auto 0}
   nav.main{display:flex;justify-content:center;gap:clamp(18px,4vw,44px);padding:20px 16px 22px;flex-wrap:wrap}
@@ -181,8 +181,10 @@
   .hours-row span:last-child{font-family:"Cormorant Garamond",serif;font-size:19px}
   .visit-address{font-family:"Cormorant Garamond",serif;font-size:clamp(26px,3.4vw,36px);font-weight:400;line-height:1.3}
   .visit p{color:var(--soft);line-height:1.75;font-size:16px;margin-top:16px;max-width:440px}
-  .door{margin-top:28px;height:210px;overflow:hidden;max-width:440px}
-  .door img{object-position:center 30%}
+  .door-frame{margin-top:36px;max-width:392px;background:#FFFDF8;border:1px solid rgba(169,139,95,.55);padding:13px 13px 0;box-shadow:0 30px 50px -28px rgba(29,26,22,.35), inset 0 0 0 1px #FFFDF8, inset 0 0 0 3px rgba(169,139,95,.30)}
+  .door{overflow:hidden;border-radius:999px 999px 6px 6px;aspect-ratio:4/4.35}
+  .door img{object-position:center 20%;filter:saturate(.96) contrast(1.03)}
+  .door-frame figcaption{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:18.5px;color:var(--soft);text-align:center;padding:15px 6px 17px}
 
   footer{background:var(--deep);color:#EDE7DC;text-align:center;padding:74px 24px 44px}
   .foot-mark{font-size:clamp(30px,5vw,44px);font-weight:500;letter-spacing:.52em;text-indent:.52em;text-transform:uppercase}
@@ -454,7 +456,7 @@
 .text-link{color:var(--clay);text-decoration:none;border-bottom:1px solid var(--gold);padding-bottom:2px;font-size:13px;letter-spacing:.22em;text-transform:uppercase}
 footer{padding:88px 5vw 42px}
 .foot-top{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1.15fr 2fr;gap:64px;text-align:left}
-.foot-mark{font-size:clamp(40px,4.4vw,60px);letter-spacing:.34em;text-indent:0}
+.foot-mark{font-size:clamp(40px,4.4vw,60px);letter-spacing:.34em;text-indent:0;background:linear-gradient(100deg,#EDE7DC 36%,#B08D4F 46%,#E9CD93 50%,#B08D4F 54%,#EDE7DC 64%);background-size:230% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;animation:wordShine 13s ease-in-out infinite}
 .foot-sub{margin-top:14px}
 .foot-tag{margin-top:22px;font-family:"Cormorant Garamond",serif;font-style:italic;font-size:19px;line-height:1.6;color:#CFC5B4;max-width:340px}
 .foot-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:42px}
@@ -781,7 +783,7 @@ footer{padding:88px 5vw 42px}
     <p>Just off US-1, serving South Miami, Coral Gables, and Coconut Grove. To reserve, simply call — we will take care of the rest.</p>
     <a class="btn btn-luxe" href="tel:+13056637171">Call 305-663-7171</a>
     <p style="margin-top:18px"><a class="text-link" href="https://www.google.com/maps/search/?api=1&amp;query=Armin+Salon+%26+Rejuvenation+5910+SW+73rd+St+South+Miami+FL+33143">Get directions to the salon</a></p>
-    <div class="door"><img loading="lazy" decoding="async" src="the-front-door-of-armin-salon-and-spa.jpg" alt="The front door of Armin Salon &amp; Spa, a hair salon and day spa in South Miami, Florida"></div>
+    <figure class="door-frame"><div class="door"><img loading="lazy" decoding="async" src="the-front-door-of-armin-salon-and-spa.jpg" alt="The front door of Armin Salon &amp; Spa, a hair salon and day spa in South Miami, Florida"></div><figcaption>The front door, on SW 73rd Street.</figcaption></figure>
   </div>
 </section>
 
