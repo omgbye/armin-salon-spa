@@ -263,7 +263,7 @@
     .mast-call{font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink);text-decoration:none;border:1px solid var(--line);padding:10px 14px}
     .wordmark{font-size:46px}
     body{padding-bottom:74px}
-    .bottom-cta{display:block;position:fixed;left:0;right:0;bottom:0;z-index:120;background:#1D1A16;color:#F5EFE3;text-align:center;text-decoration:none;font-size:12.5px;font-weight:500;letter-spacing:.32em;text-transform:uppercase;padding:18px 12px calc(18px + env(safe-area-inset-bottom));border-top:1px solid rgba(169,139,95,.85);box-shadow:0 -12px 30px -18px rgba(29,26,22,.5)}
+    .bottom-cta{display:block;position:fixed;left:0;right:0;bottom:0;z-index:120;background:linear-gradient(180deg,#BE6529,#A34E1E);color:#FFF8EC;text-align:center;text-decoration:none;font-size:13.5px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;padding:19px 12px calc(19px + env(safe-area-inset-bottom));border-top:1px solid #E9B877;box-shadow:0 -14px 34px -12px rgba(120,55,10,.55);text-shadow:0 1px 2px rgba(90,40,5,.35)}
     .menu-overlay{display:block;position:fixed;inset:0;z-index:145;background:var(--ivory);opacity:0;visibility:hidden;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease,visibility 0s linear .5s;overflow-y:auto}
     .menu-overlay.open{opacity:1;visibility:visible;transform:none;transition:opacity .5s ease,transform .5s ease}
     .menu-top{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid var(--line)}
@@ -465,6 +465,22 @@ footer{padding:88px 5vw 42px}
 .foot-bar .foot-legal{margin-top:0}
 .foot-note{text-align:center}
 @media (max-width:900px){ footer{padding:64px 24px 40px} .foot-top{grid-template-columns:1fr;gap:44px;text-align:center} .foot-tag{margin-left:auto;margin-right:auto} .foot-cols{grid-template-columns:1fr;gap:34px} .foot-bar{justify-content:center;text-align:center} }
+
+.rev-sets{display:grid}
+.rev-set{grid-area:1/1;opacity:0;transform:translateY(10px);transition:opacity .6s ease,transform .6s ease;pointer-events:none}
+.rev-set.on{opacity:1;transform:none;pointer-events:auto}
+.rev-set .rev:first-child{border-top:none;padding-top:4px;margin-top:20px}
+.rev-dots{display:flex;gap:8px;margin-top:22px}
+.rev-dot{width:7px;height:7px;border-radius:50%;border:1px solid #C9A86A;background:transparent;padding:0;cursor:pointer}
+.rev-dot.on{background:#C9A86A}
+.panel-reviews.no-rotate .rev-set{position:static;opacity:1;transform:none;pointer-events:auto}
+.sticky-bar{display:none}
+@media (max-width:720px){
+  .sticky-bar{display:flex;position:fixed;top:0;left:0;right:0;z-index:130;background:rgba(250,247,241,.97);justify-content:space-between;align-items:center;padding:9px 12px;border-bottom:1px solid var(--line);transform:translateY(-110%);transition:transform .45s ease}
+  .sticky-bar.on{transform:none;box-shadow:0 12px 26px -18px rgba(29,26,22,.4)}
+  .sb-mark{font-size:20px;font-weight:500;letter-spacing:.34em;text-indent:.34em;text-transform:uppercase;color:var(--ink)}
+  .sb-btn{background:none;border:1px solid var(--line);font-family:"Jost",sans-serif;font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--ink);padding:9px 13px;cursor:pointer;text-decoration:none}
+}
 </style>
 <script type="application/ld+json">{
   "@context": "https://schema.org",
@@ -559,6 +575,7 @@ footer{padding:88px 5vw 42px}
     <a class="reserve" href="#book" data-book>Reserve</a>
   </nav>
 </header>
+<div class="sticky-bar" id="stickyBar"><button class="sb-btn" type="button" id="sbMenu">Menu</button><span class="sb-mark">Armin</span><a class="sb-btn" href="tel:+13056637171">Call</a></div>
 
 <section class="art-hero">
   <img fetchpriority="high" src="a-watercolor-painting-of-the-armin-salon-s.jpg" alt="A watercolor painting of the Armin Salon storefront, palms and a classic red convertible out front">
@@ -821,6 +838,7 @@ footer{padding:88px 5vw 42px}
       <figure class="rev"><blockquote>Had a great experience getting a cut with Manuel! He really looked at my hair to see what I needed for it to be at its healthiest.</blockquote><figcaption>— Google review</figcaption></figure>
       <figure class="rev"><blockquote>I had a wonderful experience at this salon. The customer service was exceptional, and I&rsquo;m extremely happy with my haircut. The attention to detail and professionalism made the visit truly enjoyable.</blockquote><figcaption>— Google review</figcaption></figure>
       <figure class="rev"><blockquote>Armin can do a blow dry in 30 min flat, with no gooey products and gimmicks, just a strong arm and skills!!</blockquote><figcaption>— Citysearch review</figcaption></figure>
+          <figure class="rev"><blockquote>Armin gave me a rich new color with a few highlights, and a cut to die for. &hellip; My husband says I have never looked more beautiful and loves my new found confidence. &hellip; I owe my new glow to Armin.</blockquote><figcaption>— Citysearch review</figcaption></figure>
     </aside>
     <a class="btn btn-luxe" href="#book" data-book>Reserve</a>
     <div class="panel-foot">Armin — Salon &amp; Rejuvenation · South Miami</div>
@@ -855,6 +873,7 @@ footer{padding:88px 5vw 42px}
       <figure class="rev"><blockquote>He is knowledgeable, takes the time to listen to what you want and offers expert advice. He is skilled, attentive and friendly. He did an amazing job with my color and styling my hair. If you are looking for a skilled and attentive stylist, look no further! Go and see Frank.</blockquote><figcaption>— Maria R. · Google review</figcaption></figure>
       <figure class="rev"><blockquote>So very happy to follow Tania Pintado to this location. She is a most talented colorist and hair professional. Excellent services and convenient parking.</blockquote><figcaption>— Gilda B. · Google review</figcaption></figure>
       <figure class="rev"><blockquote>Armin is the Color God!!! &hellip;and he took me from super dark to blonde, to blonder, to just absolutely amazingly blonde!!</blockquote><figcaption>— Citysearch review</figcaption></figure>
+          <figure class="rev"><blockquote>Armin is fantastic. I walked in with overdyed hair, three colors with blackened ends. I walked out with a wonderful cut, chocolate brown hair, and styling advice. I wouldn&rsquo;t go to anyone else!</blockquote><figcaption>— Citysearch review</figcaption></figure>
     </aside>
     <a class="btn btn-luxe" href="#book" data-book>Reserve</a>
     <div class="panel-foot">Armin — Salon &amp; Rejuvenation · South Miami</div>
@@ -885,6 +904,7 @@ footer{padding:88px 5vw 42px}
       <figure class="rev"><blockquote>&hellip;a relaxing facial, all in one afternoon.</blockquote><figcaption>— Citysearch review</figcaption></figure>
       <figure class="rev"><blockquote>The professionals at Armin Salon-Spa are absolutely phenomenal! The salon is just beautiful! The staff is friendly and attentive to all its clients&hellip;</blockquote><figcaption>— Google review</figcaption></figure>
       <figure class="rev"><blockquote>Throughout my time of living in Miami, I have paid multiple visits to this salon and I am always immensely satisfied with the results I see after&hellip; Would definitely recommend this salon over anything else in the South Florida area. Never disappoints!</blockquote><figcaption>— Google review</figcaption></figure>
+          <figure class="rev"><blockquote>I got facial waxing done by Mari. She was completely pleasant, personable and did a fantastic job! I will definitely recommend her services to anyone and will be returning for their facial treatments in the future!</blockquote><figcaption>— Citysearch review</figcaption></figure>
     </aside>
     <a class="btn btn-luxe" href="#book" data-book>Reserve</a>
     <div class="panel-foot">Armin — Salon &amp; Rejuvenation · South Miami</div>
@@ -978,6 +998,7 @@ footer{padding:88px 5vw 42px}
       <figure class="rev"><blockquote>The experience is absolutely different from any other salon, it has a relaxed, spa feel to it, and I enjoy going every week.</blockquote><figcaption>— Citysearch review</figcaption></figure>
       <figure class="rev"><blockquote>Damaris is excellent. Salon is pristine, friendly staff and upscale but not ridiculous.</blockquote><figcaption>— Google review</figcaption></figure>
       <figure class="rev"><blockquote>Busy and bright and friendly staff. Parking is free!!</blockquote><figcaption>— Google review</figcaption></figure>
+          <figure class="rev"><blockquote>At Armin Salon, I have found a family. &hellip; The experience is absolutely different from any other salon, it has a relaxed, spa feel to it, and I enjoy going every week.</blockquote><figcaption>— Citysearch review</figcaption></figure>
     </aside>
     <a class="btn btn-luxe" href="#book" data-book>Plan a Visit</a>
     <div class="panel-foot">Armin — Salon &amp; Rejuvenation · South Miami</div>
@@ -1048,7 +1069,7 @@ footer{padding:88px 5vw 42px}
   </nav>
   <div class="menu-foot">5910 SW 73rd Street · South Miami<br><a href="tel:+13056637171" style="color:var(--clay);text-decoration:none">305-663-7171</a></div>
 </div>
-<a class="bottom-cta" href="#book" data-book>Reserve an Appointment</a>
+<a class="bottom-cta" href="#book" data-book>Reserve Your Appointment</a>
 
 <div class="book" id="bookOverlay" role="dialog" aria-label="Reserve an appointment">
   <div class="panel-top"><span class="panel-mark">Armin</span><button class="panel-close" id="bookClose">&#10005; &nbsp;Return</button></div>
@@ -1300,6 +1321,54 @@ document.addEventListener('gesturestart', function(e){ e.preventDefault(); });
       io.observe(q);
       setTimeout(function(){ q.classList.add('pop'); }, 5000); // never leave it blank
     } else { q.classList.add('pop'); }
+  }
+})();
+</script>
+
+<script>
+(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('.panel-reviews').forEach(function(rail){
+    var revs = Array.prototype.slice.call(rail.querySelectorAll('.rev'));
+    if(revs.length < 3){ return; }
+    var setsWrap = document.createElement('div'); setsWrap.className = 'rev-sets';
+    var sets = [];
+    for(var i = 0; i < revs.length; i += 2){
+      var set = document.createElement('div'); set.className = 'rev-set';
+      set.appendChild(revs[i]); if(revs[i+1]) set.appendChild(revs[i+1]);
+      setsWrap.appendChild(set); sets.push(set);
+    }
+    rail.appendChild(setsWrap);
+    if(reduce || sets.length < 2){ rail.classList.add('no-rotate'); sets.forEach(function(x){ x.classList.add('on'); }); return; }
+    var dots = document.createElement('div'); dots.className = 'rev-dots';
+    var cur = 0, dotEls = [];
+    sets.forEach(function(set, idx){
+      var d = document.createElement('button'); d.className = 'rev-dot' + (idx === 0 ? ' on' : ''); d.type = 'button';
+      d.setAttribute('aria-label', 'More reviews');
+      d.addEventListener('click', function(){ show(idx); });
+      dots.appendChild(d); dotEls.push(d);
+    });
+    rail.appendChild(dots);
+    sets[0].classList.add('on');
+    var hover = false;
+    rail.addEventListener('mouseenter', function(){ hover = true; });
+    rail.addEventListener('mouseleave', function(){ hover = false; });
+    function show(n){
+      sets[cur].classList.remove('on'); dotEls[cur].classList.remove('on');
+      cur = n; sets[cur].classList.add('on'); dotEls[cur].classList.add('on');
+    }
+    setInterval(function(){
+      var panel = rail.closest('.panel');
+      if(!panel || !panel.classList.contains('open') || hover) return;
+      show((cur + 1) % sets.length);
+    }, 4000);
+  });
+  var sb = document.getElementById('stickyBar');
+  if(sb){
+    var onScroll = function(){ sb.classList.toggle('on', window.scrollY > 210); };
+    window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+    var sbm = document.getElementById('sbMenu');
+    if(sbm) sbm.addEventListener('click', function(){ var mb = document.querySelector('.menu-btn'); if(mb) mb.click(); });
   }
 })();
 </script>
