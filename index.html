@@ -316,6 +316,40 @@
   .done-mark{width:64px;height:64px;margin:6px auto 22px;border:1px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;color:var(--gold)}
   .done-sum{font-family:"Cormorant Garamond",serif;font-size:23px;line-height:1.55;color:var(--ink);max-width:520px;margin:0 auto}
   @media (max-width:720px){ .orcall{justify-content:center;text-align:center} .day{font-size:13.5px} }
+
+  /* elegance pass — intro motifs, services marquee */
+  .intro-overlay::before{content:'';position:absolute;width:760px;height:760px;border-radius:50%;background:radial-gradient(circle,rgba(169,139,95,.14),transparent 65%);top:50%;left:50%;transform:translate(-50%,-54%);pointer-events:none}
+  .intro-overlay > *:not(.intro-motifs){position:relative;z-index:1}
+  .intro-motifs{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+  .motif{position:absolute;opacity:.13;animation:motifIn 1.6s ease both}
+  .motif svg{display:block;width:100%;height:auto;stroke:var(--gold);fill:none;stroke-width:1.6;stroke-linecap:round}
+  .motif svg .dot{fill:var(--gold);stroke:none}
+  .motif .float{display:block;animation:motifFloat 11s ease-in-out infinite alternate}
+  .motif-comb{left:6%;top:9%;width:74px;animation-delay:.7s}
+  .motif-scissors{left:7%;bottom:9%;width:118px;animation-delay:1s}
+  .motif-scissors .float{animation-duration:13s}
+  .motif-dryer{right:6%;top:10%;width:128px;animation-delay:1.25s}
+  .motif-dryer .float{animation-duration:10s}
+  .motif-hair{right:11%;bottom:7%;width:86px;animation-delay:1.5s}
+  .motif-hair .float{animation-duration:12s}
+  @keyframes motifIn{from{opacity:0}to{opacity:.13}}
+  @keyframes motifFloat{from{transform:translateY(-7px) rotate(-1.2deg)}to{transform:translateY(9px) rotate(1.4deg)}}
+  .services-head .rule{margin:22px auto 0}
+  .services-sub{max-width:520px;margin:18px auto 0;color:#4A443C;font-size:16px;line-height:1.8}
+  .svc-marquee{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
+  .svc-track{display:flex;gap:26px;width:max-content;padding:4px 2px 12px;animation:svcMove 58s linear infinite}
+  .svc-marquee:hover .svc-track{animation-play-state:paused}
+  .svc-track .svc{flex:0 0 338px}
+  .svc-track .svc-photo{height:288px}
+  @keyframes svcMove{to{transform:translateX(-50%)}}
+  @media (max-width:720px){
+    .motif{opacity:.09}
+    .motif-comb{width:52px}.motif-scissors{width:84px}.motif-dryer{width:92px}.motif-hair{width:60px}
+    .svc-track{gap:18px;animation-duration:42s}
+    .svc-track .svc{flex-basis:262px}
+    .svc-track .svc-photo{height:230px}
+  }
+  @media (prefers-reduced-motion: reduce){ .svc-track{animation:none} .motif .float{animation:none} }
 </style>
 <script type="application/ld+json">
 {
@@ -368,6 +402,12 @@
 <body>
 
 <div class="intro-overlay" id="introOverlay" title="Enter">
+  <div class="intro-motifs" aria-hidden="true">
+    <div class="motif motif-comb"><span class="float"><svg viewBox="0 0 100 100"><path d="M24 12 V88"/><path d="M24 24 H54"/><path d="M24 38 H54"/><path d="M24 52 H54"/><path d="M24 66 H54"/><path d="M24 80 H48"/></svg></span></div>
+    <div class="motif motif-scissors"><span class="float"><svg viewBox="0 0 100 100"><circle cx="30" cy="78" r="10"/><circle cx="70" cy="78" r="10"/><path d="M37 70 L62 18"/><path d="M63 70 L38 18"/><circle cx="50" cy="46" r="2.4" class="dot"/></svg></span></div>
+    <div class="motif motif-dryer"><span class="float"><svg viewBox="0 0 100 100"><path d="M12 36 H56 L84 27 V57 L56 50 H12 Z"/><path d="M28 50 L31 82 H45 L43 50"/><path d="M89 33 q7 4 0 9"/><path d="M91 45 q6 3 0 8"/></svg></span></div>
+    <div class="motif motif-hair"><span class="float"><svg viewBox="0 0 100 100"><path d="M25 4 C14 30 36 52 24 96"/><path d="M48 2 C38 30 58 54 47 98"/><path d="M71 4 C62 28 82 52 70 96"/></svg></span></div>
+  </div>
   <div class="intro-name" aria-label="Armin"><span style="--d:.15s">A</span><span style="--d:.3s">R</span><span style="--d:.45s">M</span><span style="--d:.6s">I</span><span style="--d:.75s">N</span></div>
   <div class="intro-rule"></div>
   <div class="intro-sub">Salon &amp; Rejuvenation</div>
@@ -418,53 +458,97 @@
 
 <section class="services" id="services">
   <div class="services-head">
-    <div class="label">Services</div>
-    <h2 class="serif">Considered, never rushed</h2>
+    <div class="label">The Services</div>
+    <h2 class="serif">Considered, never rushed.</h2>
+    <div class="rule"></div>
+    <p class="services-sub">Six disciplines, practised under one roof. Select any service to step inside it.</p>
   </div>
-  <div class="grid">
-    <article class="svc"> data-open="hair"
+  <div class="svc-marquee"><div class="svc-track">
+<article class="svc" data-open="hair">
       <div class="svc-photo"><img src="long-waves-styled-at-armin-salon.jpg" alt="Long waves, styled at Armin Salon"></div>
       <h3>Hair</h3>
       <div class="items">Cuts · Blowout · Styling</div>
       <p>The cut and finish the neighbourhood trusts — polished, wearable, unmistakably yours.</p>
       <a class="reserve-link" href="#book" data-book>Reserve Hair</a>
     </article>
-    <article class="svc"> data-open="colour"
+<article class="svc" data-open="colour">
       <div class="svc-photo"><img src="copper-colour-finished-at-armin-salon.jpg" alt="Copper colour, finished at Armin Salon"></div>
       <h3>Colour</h3>
       <div class="items">Balayage · Face-Framing · Blonde Refresh</div>
       <p>Colour with dimension and light in it — soft where it should be, bright where it counts.</p>
       <a class="reserve-link" href="#book" data-book>Reserve Colour</a>
     </article>
-    <article class="svc"> data-open="skin"
+<article class="svc" data-open="skin">
       <div class="svc-photo"><img src="a-facial-treatment-at-the-salon.jpg" alt="A facial treatment at the salon"></div>
       <h3>Skin &amp; Spa</h3>
       <div class="items">Facials · Massage · Waxing</div>
       <p>Quiet rooms, warm hands, and skin that looks rested — because it finally is.</p>
       <a class="reserve-link" href="#book" data-book>Reserve Skin</a>
     </article>
-    <article class="svc"> data-open="nails"
+<article class="svc" data-open="nails">
       <div class="svc-photo"><img src="a-finished-manicure-at-armin-salon.jpg" alt="A finished manicure at Armin Salon"></div>
       <h3>Nails</h3>
       <div class="items">Acrylic · Dip Powder · Manicure &amp; Pedicure</div>
       <p>Immaculate, understated, and finished properly — down to the last detail.</p>
       <a class="reserve-link" href="#book" data-book>Reserve Nails</a>
     </article>
-    <article class="svc"> data-open="occasions"
+<article class="svc" data-open="occasions">
       <div class="svc-photo"><img src="an-evening-updo-styled-at-armin-salon.jpg" alt="An evening updo, styled at Armin Salon"></div>
       <h3>Occasions</h3>
       <div class="items">Makeup · Bridal · Packages</div>
       <p>For the evenings that matter — composed, photographed beautifully, and entirely you.</p>
       <a class="reserve-link" href="#book" data-book>Reserve the Occasion</a>
     </article>
-    <article class="svc"> data-open="rejuvenation"
+<article class="svc" data-open="rejuvenation">
       <div class="svc-photo"><img src="a-blonde-bob-cut-and-finished-at-armin-sal.jpg" alt="A blonde bob, cut and finished at Armin Salon"></div>
       <h3>Rejuvenation</h3>
       <div class="items">Salon &amp; Spa · Under One Roof</div>
       <p>Everything in one place, in one visit — the way a proper salon should be.</p>
       <a class="reserve-link" href="#visit">Plan a Visit</a>
     </article>
-  </div>
+<article class="svc" aria-hidden="true" data-open="hair">
+      <div class="svc-photo"><img src="long-waves-styled-at-armin-salon.jpg" alt="Long waves, styled at Armin Salon"></div>
+      <h3>Hair</h3>
+      <div class="items">Cuts · Blowout · Styling</div>
+      <p>The cut and finish the neighbourhood trusts — polished, wearable, unmistakably yours.</p>
+      <a class="reserve-link" href="#book" data-book>Reserve Hair</a>
+    </article>
+<article class="svc" aria-hidden="true" data-open="colour">
+      <div class="svc-photo"><img src="copper-colour-finished-at-armin-salon.jpg" alt="Copper colour, finished at Armin Salon"></div>
+      <h3>Colour</h3>
+      <div class="items">Balayage · Face-Framing · Blonde Refresh</div>
+      <p>Colour with dimension and light in it — soft where it should be, bright where it counts.</p>
+      <a class="reserve-link" href="#book" data-book>Reserve Colour</a>
+    </article>
+<article class="svc" aria-hidden="true" data-open="skin">
+      <div class="svc-photo"><img src="a-facial-treatment-at-the-salon.jpg" alt="A facial treatment at the salon"></div>
+      <h3>Skin &amp; Spa</h3>
+      <div class="items">Facials · Massage · Waxing</div>
+      <p>Quiet rooms, warm hands, and skin that looks rested — because it finally is.</p>
+      <a class="reserve-link" href="#book" data-book>Reserve Skin</a>
+    </article>
+<article class="svc" aria-hidden="true" data-open="nails">
+      <div class="svc-photo"><img src="a-finished-manicure-at-armin-salon.jpg" alt="A finished manicure at Armin Salon"></div>
+      <h3>Nails</h3>
+      <div class="items">Acrylic · Dip Powder · Manicure &amp; Pedicure</div>
+      <p>Immaculate, understated, and finished properly — down to the last detail.</p>
+      <a class="reserve-link" href="#book" data-book>Reserve Nails</a>
+    </article>
+<article class="svc" aria-hidden="true" data-open="occasions">
+      <div class="svc-photo"><img src="an-evening-updo-styled-at-armin-salon.jpg" alt="An evening updo, styled at Armin Salon"></div>
+      <h3>Occasions</h3>
+      <div class="items">Makeup · Bridal · Packages</div>
+      <p>For the evenings that matter — composed, photographed beautifully, and entirely you.</p>
+      <a class="reserve-link" href="#book" data-book>Reserve the Occasion</a>
+    </article>
+<article class="svc" aria-hidden="true" data-open="rejuvenation">
+      <div class="svc-photo"><img src="a-blonde-bob-cut-and-finished-at-armin-sal.jpg" alt="A blonde bob, cut and finished at Armin Salon"></div>
+      <h3>Rejuvenation</h3>
+      <div class="items">Salon &amp; Spa · Under One Roof</div>
+      <p>Everything in one place, in one visit — the way a proper salon should be.</p>
+      <a class="reserve-link" href="#visit">Plan a Visit</a>
+    </article>
+  </div></div>
 </section>
 
 <section class="atmosphere">
