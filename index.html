@@ -181,10 +181,9 @@
   .hours-row span:last-child{font-family:"Cormorant Garamond",serif;font-size:19px}
   .visit-address{font-family:"Cormorant Garamond",serif;font-size:clamp(26px,3.4vw,36px);font-weight:400;line-height:1.3}
   .visit p{color:var(--soft);line-height:1.75;font-size:16px;margin-top:16px;max-width:440px}
-  .door-frame{margin-top:36px;max-width:392px;background:#FFFDF8;border:1px solid rgba(169,139,95,.55);padding:13px 13px 0;box-shadow:0 30px 50px -28px rgba(29,26,22,.35), inset 0 0 0 1px #FFFDF8, inset 0 0 0 3px rgba(169,139,95,.30)}
-  .door{overflow:hidden;border-radius:999px 999px 6px 6px;aspect-ratio:4/4.35}
-  .door img{object-position:center 20%;filter:saturate(.96) contrast(1.03)}
-  .door-frame figcaption{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:18.5px;color:var(--soft);text-align:center;padding:15px 6px 17px}
+  .map-frame{margin-top:36px;max-width:520px;background:#FFFDF8;border:1px solid rgba(169,139,95,.55);padding:10px;box-shadow:0 30px 50px -28px rgba(29,26,22,.35), inset 0 0 0 1px #FFFDF8, inset 0 0 0 3px rgba(169,139,95,.30)}
+  .map-frame iframe{display:block;width:100%;height:330px;border:0;filter:sepia(.16) saturate(.85) contrast(1.02)}
+  @media (max-width:720px){ .map-frame iframe{height:290px} }
 
   footer{background:var(--deep);color:#EDE7DC;text-align:center;padding:74px 24px 44px}
   .foot-mark{font-size:clamp(30px,5vw,44px);font-weight:500;letter-spacing:.52em;text-indent:.52em;text-transform:uppercase}
@@ -774,7 +773,7 @@ footer{padding:88px 5vw 42px}
     <div class="hours-row"><span>Thursday — Friday</span><span>9 am — 8 pm</span></div>
     <div class="hours-row"><span>Saturday</span><span>9 am — 7 pm</span></div>
     <div class="hours-row"><span>Sunday — Monday</span><span>By appointment only</span></div>
-    <p style="color:var(--soft);margin-top:18px;font-size:14px">Hours as shown on the salon door.</p>
+    
   </div>
   <div>
     <div class="label">Visit</div>
@@ -783,7 +782,7 @@ footer{padding:88px 5vw 42px}
     <p>Just off US-1, serving South Miami, Coral Gables, and Coconut Grove. To reserve, simply call — we will take care of the rest.</p>
     <a class="btn btn-luxe" href="tel:+13056637171">Call 305-663-7171</a>
     <p style="margin-top:18px"><a class="text-link" href="https://www.google.com/maps/search/?api=1&amp;query=Armin+Salon+%26+Rejuvenation+5910+SW+73rd+St+South+Miami+FL+33143">Get directions to the salon</a></p>
-    <figure class="door-frame"><div class="door"><img loading="lazy" decoding="async" src="the-front-door-of-armin-salon-and-spa.jpg" alt="The front door of Armin Salon &amp; Spa, a hair salon and day spa in South Miami, Florida"></div><figcaption>The front door, on SW 73rd Street.</figcaption></figure>
+    <figure class="map-frame"><iframe title="Map to Armin Salon &amp; Rejuvenation — a hair salon and day spa in South Miami, Florida" src="https://maps.google.com/maps?q=Armin%20Salon%20%26%20Rejuvenation%2C%205910%20SW%2073rd%20St%2C%20South%20Miami%2C%20FL%2033143&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=&amp;output=embed" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe></figure>
   </div>
 </section>
 
