@@ -233,7 +233,7 @@
   .panel{position:fixed;inset:0;z-index:150;background:var(--ivory);overflow-y:auto;opacity:0;visibility:hidden;transform:translateY(18px);transition:opacity .55s ease,transform .55s ease,visibility 0s linear .55s}
   .panel.open{opacity:1;visibility:visible;transform:none;transition:opacity .55s ease,transform .55s ease}
   .panel-top{position:sticky;top:0;display:flex;justify-content:space-between;align-items:center;padding:16px 26px;background:rgba(250,247,241,.94);border-bottom:1px solid var(--line);z-index:2}
-  .panel-mark{font-weight:300;letter-spacing:.52em;text-transform:uppercase;font-size:18px}
+  .panel-mark{font-weight:300;letter-spacing:.52em;text-transform:uppercase;font-size:18px;cursor:pointer}
   .panel-close{background:none;border:none;font-family:"Jost",sans-serif;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink);cursor:pointer;padding:8px 4px}
   .panel-close:hover{color:var(--clay)}
   .panel-hero{height:52vh;min-height:320px;overflow:hidden}
@@ -813,7 +813,7 @@ footer{padding:88px 5vw 42px}
 
 
 <div class="panel" id="panel-hair" role="dialog" aria-label="Hair">
-  <div class="panel-top"><span class="panel-mark">Armin</span><button class="panel-close" data-close>&#10005; &nbsp;Return</button></div>
+  <div class="panel-top"><span class="panel-mark" role="button" tabindex="0" title="Back to home">Armin</span><button class="panel-close" data-close>&#10005; &nbsp;Return</button></div>
   <div class="panel-hero"><img loading="lazy" decoding="async" src="a-blow-dry-in-progress-at-the-salon-2.jpg" alt="A blow-dry in progress at the salon"></div>
   <div class="panel-body has-reviews"><div class="panel-main">
     <div class="label">Services — Hair</div>
@@ -847,7 +847,7 @@ footer{padding:88px 5vw 42px}
 </div>
 
 <div class="panel" id="panel-colour" role="dialog" aria-label="Colour">
-  <div class="panel-top"><span class="panel-mark">Armin</span><button class="panel-close" data-close>&#10005; &nbsp;Return</button></div>
+  <div class="panel-top"><span class="panel-mark" role="button" tabindex="0" title="Back to home">Armin</span><button class="panel-close" data-close>&#10005; &nbsp;Return</button></div>
   <div class="panel-hero"><img loading="lazy" decoding="async" src="blonde-balayage-finished-at-the-salon.jpg" alt="Blonde balayage, finished at the salon"></div>
   <div class="panel-body has-reviews"><div class="panel-main">
     <div class="label">Services — Colour</div>
@@ -882,7 +882,7 @@ footer{padding:88px 5vw 42px}
 </div>
 
 <div class="panel" id="panel-skin" role="dialog" aria-label="Skin &amp; Spa">
-  <div class="panel-top"><span class="panel-mark">Armin</span><button class="panel-close" data-close>&#10005; &nbsp;Return</button></div>
+  <div class="panel-top"><span class="panel-mark" role="button" tabindex="0" title="Back to home">Armin</span><button class="panel-close" data-close>&#10005; &nbsp;Return</button></div>
   <div class="panel-hero"><img loading="lazy" decoding="async" src="a-facial-treatment-at-the-salon.jpg" alt="A facial treatment at the salon"></div>
   <div class="panel-body has-reviews"><div class="panel-main">
     <div class="label">Services — Skin &amp; Spa</div>
@@ -913,7 +913,7 @@ footer{padding:88px 5vw 42px}
 </div>
 
 <div class="panel" id="panel-nails" role="dialog" aria-label="Nails">
-  <div class="panel-top"><span class="panel-mark">Armin</span><button class="panel-close" data-close>&#10005; &nbsp;Return</button></div>
+  <div class="panel-top"><span class="panel-mark" role="button" tabindex="0" title="Back to home">Armin</span><button class="panel-close" data-close>&#10005; &nbsp;Return</button></div>
   <div class="panel-hero"><img loading="lazy" decoding="async" src="gloss-black-nails-finished-at-the-salon.jpg" alt="Gloss black nails, finished at the salon"></div>
   <div class="panel-body has-reviews"><div class="panel-main">
     <div class="label">Services — Nails</div>
@@ -946,7 +946,7 @@ footer{padding:88px 5vw 42px}
 </div>
 
 <div class="panel" id="panel-occasions" role="dialog" aria-label="Occasions">
-  <div class="panel-top"><span class="panel-mark">Armin</span><button class="panel-close" data-close>&#10005; &nbsp;Return</button></div>
+  <div class="panel-top"><span class="panel-mark" role="button" tabindex="0" title="Back to home">Armin</span><button class="panel-close" data-close>&#10005; &nbsp;Return</button></div>
   <div class="panel-hero"><img loading="lazy" decoding="async" src="an-evening-updo-styled-at-armin-salon.jpg" alt="An evening updo, styled at the salon"></div>
   <div class="panel-body has-reviews"><div class="panel-main">
     <div class="label">Services — Occasions</div>
@@ -977,7 +977,7 @@ footer{padding:88px 5vw 42px}
 </div>
 
 <div class="panel" id="panel-rejuvenation" role="dialog" aria-label="Rejuvenation">
-  <div class="panel-top"><span class="panel-mark">Armin</span><button class="panel-close" data-close>&#10005; &nbsp;Return</button></div>
+  <div class="panel-top"><span class="panel-mark" role="button" tabindex="0" title="Back to home">Armin</span><button class="panel-close" data-close>&#10005; &nbsp;Return</button></div>
   <div class="panel-hero"><img loading="lazy" decoding="async" src="a-busy-day-on-the-salon-floor-2.jpg" alt="A busy day on the salon floor"></div>
   <div class="panel-body has-reviews"><div class="panel-main">
     <div class="label">Services — Rejuvenation</div>
@@ -1008,7 +1008,7 @@ footer{padding:88px 5vw 42px}
 </div>
 
 <div class="menu-overlay" id="menuOverlay">
-  <div class="menu-top"><span class="panel-mark">Armin</span><button class="panel-close" id="menuClose">&#10005; &nbsp;Close</button></div>
+  <div class="menu-top"><span class="panel-mark" role="button" tabindex="0" title="Back to home">Armin</span><button class="panel-close" id="menuClose">&#10005; &nbsp;Close</button></div>
   <nav class="menu-links">
     <a href="#hair" data-open="hair">Hair</a>
 <script>
@@ -1074,7 +1074,7 @@ footer{padding:88px 5vw 42px}
 <a class="bottom-cta" href="#book" data-book>Reserve Your Appointment</a>
 
 <div class="book" id="bookOverlay" role="dialog" aria-label="Reserve an appointment">
-  <div class="panel-top"><span class="panel-mark">Armin</span><button class="panel-close" id="bookClose">&#10005; &nbsp;Return</button></div>
+  <div class="panel-top"><span class="panel-mark" role="button" tabindex="0" title="Back to home">Armin</span><button class="panel-close" id="bookClose">&#10005; &nbsp;Return</button></div>
   <div class="book-body">
     <div id="bookForm">
       <div class="label">Reservations</div>
@@ -1372,6 +1372,20 @@ document.addEventListener('gesturestart', function(e){ e.preventDefault(); });
     var sbm = document.getElementById('sbMenu');
     if(sbm) sbm.addEventListener('click', function(){ var mb = document.querySelector('.menu-btn'); if(mb) mb.click(); });
   }
+})();
+</script>
+
+<script>
+(function(){
+  document.querySelectorAll('.panel-mark').forEach(function(m){
+    function go(){
+      var top = m.closest('.panel-top, .menu-top');
+      var btn = top && top.querySelector('.panel-close');
+      if(btn) btn.click();
+    }
+    m.addEventListener('click', go);
+    m.addEventListener('keydown', function(e){ if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); go(); } });
+  });
 })();
 </script>
 </body>
