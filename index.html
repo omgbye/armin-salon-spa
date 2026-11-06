@@ -64,10 +64,12 @@
   @keyframes shimmer{from{background-position:120% 0}to{background-position:-60% 0}}
   @keyframes nameBreath{0%,100%{transform:scale(1)}50%{transform:scale(1.015)}}
   @keyframes wordShine{0%{background-position:130% 0}45%,100%{background-position:-30% 0}}
-  .intro-rule{width:0;height:1px;background:#C9A86A;margin:30px 0 24px;animation:ruleGrow 1s ease 1.5s forwards}
+  .intro-rule{width:0;height:1px;background:linear-gradient(90deg,#C9A86A 20%,#FFF3D6 50%,#C9A86A 80%);background-size:220% 100%;margin:32px 0 26px;animation:ruleGrow 1s ease 1.5s forwards,ruleSheen 1.8s ease 2.3s}
+  @keyframes ruleSheen{from{background-position:120% 0}to{background-position:-60% 0}}
+  .intro-name{filter:drop-shadow(0 0 26px rgba(201,168,106,.16))}
   @keyframes ruleGrow{to{width:min(300px,62vw)}}
-  .intro-sub{font-size:clamp(12.5px,2.8vw,16.5px);letter-spacing:.58em;text-indent:.58em;text-transform:uppercase;color:#D8CBB2;opacity:0;animation:fadeUp .9s ease 1.9s forwards}
-  .intro-city{margin-top:16px;font-family:"Cormorant Garamond",serif;font-style:italic;font-size:19px;color:#9A8B72;opacity:0;animation:fadeUp .9s ease 2.4s forwards}
+  .intro-overlay .intro-sub{font-weight:500;font-size:clamp(16px,3.4vw,22px);letter-spacing:.44em;text-indent:.44em;text-transform:uppercase;color:#F0E7D3;text-shadow:0 0 24px rgba(201,168,106,.35);opacity:0;animation:fadeUp .9s ease 1.9s forwards}
+  .intro-city{margin-top:18px;font-family:"Cormorant Garamond",serif;font-style:italic;font-size:21px;color:#B7A888;opacity:0;animation:fadeUp .9s ease 2.4s forwards}
   @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
 
   /* hero slideshow — the pictures of the spa, arriving after the name */
@@ -324,7 +326,7 @@
   @media (max-width:720px){ .orcall{justify-content:center;text-align:center} .day{font-size:13.5px} }
 
   /* elegance pass — intro motifs, services marquee */
-  .intro-overlay::before{content:'';position:absolute;width:760px;height:760px;border-radius:50%;background:radial-gradient(circle,rgba(169,139,95,.14),transparent 65%);top:50%;left:50%;transform:translate(-50%,-54%);pointer-events:none}
+  .intro-overlay::before{content:'';position:absolute;width:760px;height:760px;border-radius:50%;background:radial-gradient(circle,rgba(169,139,95,.22),transparent 65%);top:50%;left:50%;transform:translate(-50%,-54%);pointer-events:none}
   .intro-overlay > *:not(.intro-motifs){position:relative;z-index:1}
   .intro-motifs{position:absolute;inset:0;overflow:hidden;pointer-events:none}
   .motif{position:absolute;opacity:.13;animation:motifIn 1.6s ease both}
