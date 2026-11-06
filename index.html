@@ -218,19 +218,30 @@
   body.locked{overflow:hidden}
   @media (max-width:720px){ .panel-hero{height:40vh;min-height:260px} .panel-gal{gap:6px} }
 
-  /* build — mobile sticky bar */
-  .mobile-bar{display:none}
+  /* build — mobile header, menu, bottom CTA */
+  .mast-row{display:none}
+  .menu-overlay{display:none}
+  .bottom-cta{display:none}
   @media (max-width:720px){
-    .mobile-bar{display:flex;position:fixed;top:0;left:0;right:0;z-index:120;align-items:center;justify-content:space-between;gap:10px;padding:9px 14px;background:rgba(250,247,241,.97);border-bottom:1px solid var(--line)}
-    .mb-name{font-weight:300;font-size:15px;letter-spacing:.4em;text-transform:uppercase;line-height:1.2;color:var(--ink)}
-    .mb-name span{display:block;font-size:7.5px;letter-spacing:.3em;color:var(--soft);margin-top:2px}
-    .mb-cta{font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--clay);text-decoration:none;border:1px solid rgba(169,139,95,.75);padding:9px 11px;white-space:nowrap}
-    body{padding-top:57px}
+    .utility{display:none}
+    nav.main{display:none}
+    header.masthead{padding:20px 16px 26px}
+    .mast-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
+    .menu-btn{background:none;border:1px solid var(--line);font-family:"Jost",sans-serif;font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink);padding:10px 14px;cursor:pointer}
+    .mast-call{font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink);text-decoration:none;border:1px solid var(--line);padding:10px 14px}
+    .wordmark{font-size:46px}
+    body{padding-bottom:74px}
+    .bottom-cta{display:block;position:fixed;left:0;right:0;bottom:0;z-index:120;background:#1D1A16;color:#F5EFE3;text-align:center;text-decoration:none;font-size:12.5px;font-weight:500;letter-spacing:.32em;text-transform:uppercase;padding:18px 12px calc(18px + env(safe-area-inset-bottom));border-top:1px solid rgba(169,139,95,.85);box-shadow:0 -12px 30px -18px rgba(29,26,22,.5)}
+    .menu-overlay{display:block;position:fixed;inset:0;z-index:145;background:var(--ivory);opacity:0;visibility:hidden;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease,visibility 0s linear .5s;overflow-y:auto}
+    .menu-overlay.open{opacity:1;visibility:visible;transform:none;transition:opacity .5s ease,transform .5s ease}
+    .menu-top{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid var(--line)}
+    .menu-links{padding:36px 24px 18px;text-align:center}
+    .menu-links a{display:block;font-family:"Cormorant Garamond",serif;font-size:36px;font-weight:500;color:var(--ink);text-decoration:none;padding:10px 0}
+    .menu-foot{text-align:center;padding:24px 24px 44px;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--soft);line-height:2.2}
   }
 </style>
 </head>
 <body>
-<div class="mobile-bar"><div class="mb-name">Armin<span>Salon &amp; Rejuvenation</span></div><a class="mb-cta" href="tel:+13056637171">Reserve an Appointment</a></div>
 
 <div class="intro-overlay" id="introOverlay" title="Enter">
   <div class="intro-name" aria-label="Armin"><span style="--d:.15s">A</span><span style="--d:.3s">R</span><span style="--d:.45s">M</span><span style="--d:.6s">I</span><span style="--d:.75s">N</span></div>
@@ -250,6 +261,7 @@
 <div class="utility">South Miami &nbsp;·&nbsp; <b>5910 SW 73rd Street</b> &nbsp;·&nbsp; <b>305-663-7171</b> &nbsp;·&nbsp; By Appointment</div>
 
 <header class="masthead">
+  <div class="mast-row"><button class="menu-btn" id="menuBtn">&#9776; &nbsp;Menu</button><a class="mast-call" href="tel:+13056637171">Call</a></div>
   <div class="wordmark">Armin</div>
   <div class="wordmark-sub">Salon &amp; Rejuvenation</div>
   <div class="rule"></div>
@@ -545,6 +557,11 @@
     <div class="panel-foot">Armin — Salon &amp; Rejuvenation · South Miami</div>
   </div>
 </div>
+
+<div class="menu-overlay" id="menuOverlay">
+  <div class="menu-top"><span class="panel-mark">Armin</span><button class="panel-close" id="menuClose">&#10005; &nbsp;Close</button></div>
+  <nav class="menu-links">
+    <a href="#hair" data-open="hair">Hair</a>
 <script>
 (function(){
   function openPanel(id){
@@ -560,15 +577,22 @@
     document.body.classList.remove('locked');
     try{ history.replaceState(null,'',' '); }catch(e){}
   }
+  var menuEl = document.getElementById('menuOverlay');
+  function openMenu(){ if(menuEl){ menuEl.classList.add('open'); document.body.classList.add('locked'); } }
+  function closeMenu(){ if(menuEl){ menuEl.classList.remove('open'); if(!document.querySelector('.panel.open')) document.body.classList.remove('locked'); } }
+  var menuBtn = document.getElementById('menuBtn'); if(menuBtn) menuBtn.addEventListener('click', openMenu);
+  var menuClose = document.getElementById('menuClose'); if(menuClose) menuClose.addEventListener('click', closeMenu);
+  document.querySelectorAll('[data-scroll]').forEach(function(a){ a.addEventListener('click', closeMenu); });
+  if((location.hash || '') === '#menu') openMenu();
   document.querySelectorAll('[data-open]').forEach(function(el){
     el.addEventListener('click', function(e){
       if(e.target.closest('a.reserve-link')) return;
       if(el.tagName === 'A') e.preventDefault();
-      openPanel(el.getAttribute('data-open'));
+      closeMenu(); openPanel(el.getAttribute('data-open'));
     });
   });
   document.querySelectorAll('[data-close]').forEach(function(b){ b.addEventListener('click', closePanels); });
-  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closePanels(); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape'){ closePanels(); closeMenu(); } });
   var ids = ['hair','colour','skin','nails','occasions','rejuvenation'];
   var h = (location.hash || '').replace('#','').replace('panel-','');
   if(ids.indexOf(h) > -1) openPanel(h);
@@ -586,5 +610,17 @@
 })();
 </script>
 
+
+    <a href="#colour" data-open="colour">Colour</a>
+    <a href="#skin" data-open="skin">Skin &amp; Spa</a>
+    <a href="#nails" data-open="nails">Nails</a>
+    <a href="#occasions" data-open="occasions">Occasions</a>
+    <a href="#rejuvenation" data-open="rejuvenation">Rejuvenation</a>
+    <a href="#products" data-scroll>Products</a>
+    <a href="#visit" data-scroll>Visit</a>
+  </nav>
+  <div class="menu-foot">5910 SW 73rd Street · South Miami<br><a href="tel:+13056637171" style="color:var(--clay);text-decoration:none">305-663-7171</a></div>
+</div>
+<a class="bottom-cta" href="tel:+13056637171">Reserve an Appointment</a>
 </body>
 </html>
