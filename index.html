@@ -340,8 +340,8 @@
   .services-head .rule{margin:22px auto 0}
   .services-sub{max-width:520px;margin:18px auto 0;color:#4A443C;font-size:16px;line-height:1.8}
   .svc-marquee{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
-  .svc-track{display:flex;gap:26px;width:max-content;padding:4px 2px 12px;animation:svcMove 58s linear infinite}
-  .svc-marquee:hover .svc-track{animation-play-state:paused}
+  .svc-track{display:flex;gap:26px;width:max-content;padding:4px 2px 12px;animation:svcMove 58s linear infinite;will-change:transform}
+  @media (hover:hover) and (pointer:fine){ .svc-marquee:hover .svc-track{animation-play-state:paused} }
   .svc-track .svc{flex:0 0 338px}
   .svc-track .svc-photo{height:288px}
   @keyframes svcMove{to{transform:translateX(-50%)}}
@@ -352,7 +352,7 @@
     .svc-track .svc{flex-basis:262px}
     .svc-track .svc-photo{height:230px}
   }
-  @media (prefers-reduced-motion: reduce){ .svc-track{animation:none} .motif .float{animation:none} }
+  @media (prefers-reduced-motion: reduce){ .svc-track{animation-duration:160s} .motif .float{animation:none} }
 </style>
 <script type="application/ld+json">{
   "@context": "https://schema.org",
