@@ -408,9 +408,9 @@
 .foot-legal span{margin:0 10px;color:var(--gold)}
 
 /* craft band — close-up hero under the intro, zooms gently as you scroll */
-.craft-band{min-height:92vh;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center}
+.craft-band{min-height:62vh;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center}
 .craft-band img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 38%;display:block;transform:scale(1.04);will-change:transform}
-@media (max-width:720px){ .craft-band{min-height:100vh} .craft-veil{padding:46px 24px 50px;margin:16px} }
+@media (max-width:720px){ .craft-band{min-height:74vh} .craft-veil{padding:46px 24px 50px;margin:16px} }
 /* quote letters pop in as the band arrives */
 .atmosphere blockquote .ql{display:inline-block;opacity:0;transform:translateY(16px) scale(.7);transition:opacity .5s ease,transform .55s cubic-bezier(.2,1.6,.4,1)}
 .atmosphere blockquote .qs{display:inline-block;width:.28em}
@@ -428,6 +428,19 @@
 
 .panel-gal.gal4{grid-template-columns:repeat(4,1fr)}
 @media (max-width:720px){ .panel-gal.gal4{grid-template-columns:repeat(2,1fr)} }
+
+.panel-body.has-reviews{max-width:1180px;display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:56px;text-align:left;align-items:start}
+.panel-body.has-reviews .panel-main{min-width:0}
+.panel-body.has-reviews .btn-luxe{grid-column:1/-1;justify-self:center}
+.panel-body.has-reviews .panel-foot{grid-column:1/-1;text-align:center}
+.panel-reviews{border-left:1px solid rgba(169,139,95,.4);padding-left:36px}
+.rev-agg{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#A98B5F;margin:10px 0 6px}
+.rev{margin:30px 0 0}
+.rev blockquote{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:18.5px;line-height:1.55;color:var(--ink)}
+.rev figcaption{margin-top:9px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--soft)}
+@media (max-width:980px){ .panel-body.has-reviews{grid-template-columns:1fr;gap:8px} .panel-reviews{border-left:none;border-top:1px solid rgba(169,139,95,.4);padding-left:0;padding-top:34px;margin-top:26px} }
+
+.panel-body.has-reviews .panel-main p{margin-left:0;margin-right:0;text-align:left}
 </style>
 <script type="application/ld+json">{
   "@context": "https://schema.org",
@@ -678,6 +691,9 @@
     <a href="https://www.instagram.com/p/Cif3dtMgD0L/"><img loading="lazy" decoding="async" src="makeup-finished-for-an-occasion.jpg" alt="Makeup finished for an occasion"></a>
     <a href="https://www.instagram.com/p/BjKkso7hRld/"><img loading="lazy" decoding="async" src="long-dark-waves-finished.jpg" alt="Long dark waves, finished"></a>
     <a href="https://www.instagram.com/arminsalon.spa/"><img loading="lazy" decoding="async" src="highlights-finished-at-armin-salon.jpg" alt="Highlights, finished at Armin Salon"></a>
+    <a href="https://www.instagram.com/arminsalon.spa/"><img loading="lazy" decoding="async" src="a-blonde-bob-cut-and-finished-at-armin-sal.jpg" alt="A blonde bob, cut and finished at Armin Salon"></a>
+    <a href="https://www.instagram.com/arminsalon.spa/"><img loading="lazy" decoding="async" src="an-evening-updo-styled-at-armin-salon.jpg" alt="An evening updo, styled at the salon"></a>
+    <a href="https://www.instagram.com/arminsalon.spa/"><img loading="lazy" decoding="async" src="blonde-finished-in-the-chair.jpg" alt="Blonde, finished in the chair"></a>
   </div>
 </section>
 
@@ -705,9 +721,9 @@
   <div class="sub-card">
     <div class="sub-art"><img loading="lazy" decoding="async" src="subscribe-painting.jpg" alt="Leaving Armin with her bag, watercolor"></div>
     <div class="sub-main">
-    <div class="label">The Armin List</div>
-    <h2>First to know.</h2>
-    <p>Subscribe to receive updates on seasonal rituals, exclusive evenings, and special offers. Armin Salon &amp; Rejuvenation offers hair, skin, and nails composed in a single visit — and the occasional indulgence, delivered first to this list.</p>
+    <div class="label">Sign Up</div>
+    <h2>Exclusive information, <em>&amp; promotions.</em></h2>
+    <p>Join the list for word from the house before anyone else — seasonal rituals, exclusive evenings, and promotions reserved for subscribers. Hair, skin, and nails composed in a single visit, and the occasional indulgence, delivered first to you.</p>
     <form class="sub-form" id="subForm" novalidate>
       <input type="email" id="subEmail" placeholder="Your email address" autocomplete="email" aria-label="Email address">
       <button type="submit">Subscribe</button>
@@ -735,7 +751,7 @@
 <div class="panel" id="panel-hair" role="dialog" aria-label="Hair">
   <div class="panel-top"><span class="panel-mark">Armin</span><button class="panel-close" data-close>&#10005; &nbsp;Return</button></div>
   <div class="panel-hero"><img loading="lazy" decoding="async" src="a-blow-dry-in-progress-at-the-salon-2.jpg" alt="A blow-dry in progress at the salon"></div>
-  <div class="panel-body">
+  <div class="panel-body has-reviews"><div class="panel-main">
     <div class="label">Services — Hair</div>
     <h2>Cut with <em>intention.</em></h2>
     <p>A great cut is architecture. It is measured against the bone structure, the way the hair naturally falls, and the way you actually live in it — long before the scissors come out.</p>
@@ -751,6 +767,15 @@
         <img loading="lazy" decoding="async" src="a-styled-cut-with-volume-2.jpg" alt="A styled cut with volume">
         <img loading="lazy" decoding="async" src="blonde-finished-in-the-chair.jpg" alt="Blonde, finished in the chair">
     </div>
+        </div>
+    <aside class="panel-reviews">
+      <div class="label">Word of Mouth</div>
+      <p class="rev-agg">Rated 4.6 on Google · 65+ reviews</p>
+      <figure class="rev"><blockquote>Chris Vasquez, at Armin Salon, is my forever hair stylist extraordinaire!! He easily tames my unruly, curly, &amp; thick hair into a work of art! He has such an amazing technique for controlling and molding my thick hair into silky smooth beautiful straight hair. I have been a loyal client for over 15 years now!</blockquote><figcaption>— Google review</figcaption></figure>
+      <figure class="rev"><blockquote>Had a great experience getting a cut with Manuel! He really looked at my hair to see what I needed for it to be at its healthiest.</blockquote><figcaption>— Google review</figcaption></figure>
+      <figure class="rev"><blockquote>I had a wonderful experience at this salon. The customer service was exceptional, and I&rsquo;m extremely happy with my haircut. The attention to detail and professionalism made the visit truly enjoyable.</blockquote><figcaption>— Google review</figcaption></figure>
+      <figure class="rev"><blockquote>Armin can do a blow dry in 30 min flat, with no gooey products and gimmicks, just a strong arm and skills!!</blockquote><figcaption>— Citysearch review</figcaption></figure>
+    </aside>
     <a class="btn btn-luxe" href="#book" data-book>Reserve</a>
     <div class="panel-foot">Armin — Salon &amp; Rejuvenation · South Miami</div>
   </div>
@@ -759,7 +784,7 @@
 <div class="panel" id="panel-colour" role="dialog" aria-label="Colour">
   <div class="panel-top"><span class="panel-mark">Armin</span><button class="panel-close" data-close>&#10005; &nbsp;Return</button></div>
   <div class="panel-hero"><img loading="lazy" decoding="async" src="blonde-balayage-finished-at-the-salon.jpg" alt="Blonde balayage, finished at the salon"></div>
-  <div class="panel-body">
+  <div class="panel-body has-reviews"><div class="panel-main">
     <div class="label">Services — Colour</div>
     <h2>Colour, <em>calculated.</em></h2>
     <p>Correct colour is not chosen from a swatch — it is formulated. Your colourist reads the hair&rsquo;s history first: what is on it, what it has carried, how it will lift. Only then is the formula built, strand by strand, tone by tone.</p>
@@ -777,6 +802,15 @@
         <img loading="lazy" decoding="async" src="highlights-finished.jpg" alt="Highlights, finished">
         <img loading="lazy" decoding="async" src="long-blonde-finished.jpg" alt="Long blonde, finished">
     </div>
+        </div>
+    <aside class="panel-reviews">
+      <div class="label">Word of Mouth</div>
+      <p class="rev-agg">Rated 4.6 on Google · 65+ reviews</p>
+      <figure class="rev"><blockquote>Armin is the absolute best hairdresser I have ever been to. Amazing service and he does color better than anyone I have ever seen. So happy to have found you! Thank you Armin</blockquote><figcaption>— Agent M. · Google review</figcaption></figure>
+      <figure class="rev"><blockquote>He is knowledgeable, takes the time to listen to what you want and offers expert advice. He is skilled, attentive and friendly. He did an amazing job with my color and styling my hair. If you are looking for a skilled and attentive stylist, look no further! Go and see Frank.</blockquote><figcaption>— Maria R. · Google review</figcaption></figure>
+      <figure class="rev"><blockquote>So very happy to follow Tania Pintado to this location. She is a most talented colorist and hair professional. Excellent services and convenient parking.</blockquote><figcaption>— Gilda B. · Google review</figcaption></figure>
+      <figure class="rev"><blockquote>Armin is the Color God!!! &hellip;and he took me from super dark to blonde, to blonder, to just absolutely amazingly blonde!!</blockquote><figcaption>— Citysearch review</figcaption></figure>
+    </aside>
     <a class="btn btn-luxe" href="#book" data-book>Reserve</a>
     <div class="panel-foot">Armin — Salon &amp; Rejuvenation · South Miami</div>
   </div>
@@ -785,7 +819,7 @@
 <div class="panel" id="panel-skin" role="dialog" aria-label="Skin &amp; Spa">
   <div class="panel-top"><span class="panel-mark">Armin</span><button class="panel-close" data-close>&#10005; &nbsp;Return</button></div>
   <div class="panel-hero"><img loading="lazy" decoding="async" src="a-facial-treatment-at-the-salon.jpg" alt="A facial treatment at the salon"></div>
-  <div class="panel-body">
+  <div class="panel-body has-reviews"><div class="panel-main">
     <div class="label">Services — Skin &amp; Spa</div>
     <h2>Skin, treated <em>seriously.</em></h2>
     <p>Skin is assessed before it is touched. Our aestheticians work with advanced treatment technology and one simple discipline: nothing aggressive for its own sake, and nothing promised that the skin cannot deliver.</p>
@@ -800,6 +834,14 @@
         <img loading="lazy" decoding="async" src="a-guest-of-the-salon.jpg" alt="A guest of the salon">
         <img loading="lazy" decoding="async" src="makeup-and-skin-finished.jpg" alt="Makeup and skin, finished">
     </div>
+        </div>
+    <aside class="panel-reviews">
+      <div class="label">Word of Mouth</div>
+      <p class="rev-agg">Rated 4.6 on Google · 65+ reviews</p>
+      <figure class="rev"><blockquote>&hellip;a relaxing facial, all in one afternoon.</blockquote><figcaption>— Citysearch review</figcaption></figure>
+      <figure class="rev"><blockquote>The professionals at Armin Salon-Spa are absolutely phenomenal! The salon is just beautiful! The staff is friendly and attentive to all its clients&hellip;</blockquote><figcaption>— Google review</figcaption></figure>
+      <figure class="rev"><blockquote>Throughout my time of living in Miami, I have paid multiple visits to this salon and I am always immensely satisfied with the results I see after&hellip; Would definitely recommend this salon over anything else in the South Florida area. Never disappoints!</blockquote><figcaption>— Google review</figcaption></figure>
+    </aside>
     <a class="btn btn-luxe" href="#book" data-book>Reserve</a>
     <div class="panel-foot">Armin — Salon &amp; Rejuvenation · South Miami</div>
   </div>
@@ -808,7 +850,7 @@
 <div class="panel" id="panel-nails" role="dialog" aria-label="Nails">
   <div class="panel-top"><span class="panel-mark">Armin</span><button class="panel-close" data-close>&#10005; &nbsp;Return</button></div>
   <div class="panel-hero"><img loading="lazy" decoding="async" src="gloss-black-nails-finished-at-the-salon.jpg" alt="Gloss black nails, finished at the salon"></div>
-  <div class="panel-body">
+  <div class="panel-body has-reviews"><div class="panel-main">
     <div class="label">Services — Nails</div>
     <h2>Finished to the <em>last detail.</em></h2>
     <p>Nails are the detail everyone notices. Ours are shaped, finished and polished with the same exactness as everything else in the house — immaculate cuticle work, an even architecture, colour with depth.</p>
@@ -824,6 +866,15 @@
         <img loading="lazy" decoding="async" src="a-pale-manicure-finished.jpg" alt="A pale manicure, finished">
         <img loading="lazy" decoding="async" src="pink-with-a-plaid-detail.jpg" alt="Pink, with a plaid detail">
     </div>
+        </div>
+    <aside class="panel-reviews">
+      <div class="label">Word of Mouth</div>
+      <p class="rev-agg">Rated 4.6 on Google · 65+ reviews</p>
+      <figure class="rev"><blockquote>I got my nails done by Kim and I&rsquo;m OBSESSED! My nail came out gorgeous! What I loved most is that she&rsquo;s super sweet and detail-oriented. I&rsquo;m definitely coming back. Highly recommend!!</blockquote><figcaption>— Google review</figcaption></figure>
+      <figure class="rev"><blockquote>Ms. Kim was an amazing nail artist! She was kind, attentive, a perfectionist, and very funny. I showed her a design that she went above and beyond to create and honestly did better than the picture I showed her.</blockquote><figcaption>— Google review</figcaption></figure>
+      <figure class="rev"><blockquote>Kim from the nail department is so good at all designs and all nails! I definitely recommend her services!</blockquote><figcaption>— Google review</figcaption></figure>
+      <figure class="rev"><blockquote>Kim&rsquo;s nail designs were amazing and she was super detail-oriented.</blockquote><figcaption>— Google review</figcaption></figure>
+    </aside>
     <a class="btn btn-luxe" href="#book" data-book>Reserve</a>
     <div class="panel-foot">Armin — Salon &amp; Rejuvenation · South Miami</div>
   </div>
@@ -832,7 +883,7 @@
 <div class="panel" id="panel-occasions" role="dialog" aria-label="Occasions">
   <div class="panel-top"><span class="panel-mark">Armin</span><button class="panel-close" data-close>&#10005; &nbsp;Return</button></div>
   <div class="panel-hero"><img loading="lazy" decoding="async" src="an-evening-updo-styled-at-armin-salon.jpg" alt="An evening updo, styled at the salon"></div>
-  <div class="panel-body">
+  <div class="panel-body has-reviews"><div class="panel-main">
     <div class="label">Services — Occasions</div>
     <h2>For the evenings <em>that matter.</em></h2>
     <p>Galas, weddings, the photographs that stay in the family for decades — occasion work is composed, never improvised. Hair and makeup are designed together, and tested against the dress, the light, and the hour.</p>
@@ -848,6 +899,14 @@
         <img loading="lazy" decoding="async" src="makeup-and-skin-finished.jpg" alt="Makeup, finished">
         <img loading="lazy" decoding="async" src="a-guest-of-the-salon.jpg" alt="Hair, finished for the evening">
     </div>
+        </div>
+    <aside class="panel-reviews">
+      <div class="label">Word of Mouth</div>
+      <p class="rev-agg">Rated 4.6 on Google · 65+ reviews</p>
+      <figure class="rev"><blockquote>Armin salon is the best in south Miami for hair! I was getting married and I went there for an updo and Lidia gave me a great updo&hellip; it was loose and soft and very feminine&hellip; The best my hair has ever looked!!! Got many compliments!!!</blockquote><figcaption>— Google review</figcaption></figure>
+      <figure class="rev"><blockquote>They did what I wanted and even better. I was totally impressed with the final results of my makeover!</blockquote><figcaption>— Google review</figcaption></figure>
+      <figure class="rev"><blockquote>I have a busy social agenda, and at Armin Salon, I feel I can escape for those few hours from my busy life&hellip; my hair looks healthier than ever, I recommend 100% Armin Salon.</blockquote><figcaption>— Citysearch review</figcaption></figure>
+    </aside>
     <a class="btn btn-luxe" href="#book" data-book>Reserve</a>
     <div class="panel-foot">Armin — Salon &amp; Rejuvenation · South Miami</div>
   </div>
@@ -856,7 +915,7 @@
 <div class="panel" id="panel-rejuvenation" role="dialog" aria-label="Rejuvenation">
   <div class="panel-top"><span class="panel-mark">Armin</span><button class="panel-close" data-close>&#10005; &nbsp;Return</button></div>
   <div class="panel-hero"><img loading="lazy" decoding="async" src="a-busy-day-on-the-salon-floor-2.jpg" alt="A busy day on the salon floor"></div>
-  <div class="panel-body">
+  <div class="panel-body has-reviews"><div class="panel-main">
     <div class="label">Services — Rejuvenation</div>
     <h2>Everything, <em>composed.</em></h2>
     <p>The idea behind Armin is simple: hair, skin and nails are not separate appointments competing for separate days. They are one composition — finished in a single visit, under one roof.</p>
@@ -871,6 +930,14 @@
         <img loading="lazy" decoding="async" src="a-short-cut-in-profile-at-the-salon.jpg" alt="A short cut in profile, at the salon">
         <img loading="lazy" decoding="async" src="a-guest-finished-in-the-salon.jpg" alt="A guest, finished, in the salon">
     </div>
+        </div>
+    <aside class="panel-reviews">
+      <div class="label">Word of Mouth</div>
+      <p class="rev-agg">Rated 4.6 on Google · 65+ reviews</p>
+      <figure class="rev"><blockquote>The experience is absolutely different from any other salon, it has a relaxed, spa feel to it, and I enjoy going every week.</blockquote><figcaption>— Citysearch review</figcaption></figure>
+      <figure class="rev"><blockquote>Damaris is excellent. Salon is pristine, friendly staff and upscale but not ridiculous.</blockquote><figcaption>— Google review</figcaption></figure>
+      <figure class="rev"><blockquote>Busy and bright and friendly staff. Parking is free!!</blockquote><figcaption>— Google review</figcaption></figure>
+    </aside>
     <a class="btn btn-luxe" href="#book" data-book>Plan a Visit</a>
     <div class="panel-foot">Armin — Salon &amp; Rejuvenation · South Miami</div>
   </div>
