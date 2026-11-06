@@ -34,6 +34,16 @@ p{font-size:16.5px;line-height:1.85;color:#3E372C;margin:0 auto 20px;max-width:6
 .backline a{color:var(--clay);text-decoration:none;border-bottom:1px solid var(--gold);padding-bottom:2px}
 footer{background:var(--deep);color:#A79B8A;text-align:center;padding:34px 24px 38px;margin-top:64px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;line-height:2.1}
 footer a{color:#EDE7DC;text-decoration:none;border-bottom:1px solid rgba(169,139,95,.65);padding-bottom:2px}
+
+.sec-label{font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);margin:52px 0 24px}
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:36px 26px;max-width:900px;margin:0 auto}
+.member .portrait{aspect-ratio:4/5;background:linear-gradient(160deg,#F3EDE2,#EAE1D2);box-shadow:inset 0 0 0 1px rgba(169,139,95,.45), inset 0 0 0 9px #FBF8F2, inset 0 0 0 10px rgba(169,139,95,.30)}
+.member h3{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:22px;margin:16px 0 4px}
+.member .role{font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--soft)}
+.member .mini-rule{width:34px;height:1px;background:var(--gold);margin:10px auto 0}
+.ops-one{max-width:290px;margin:0 auto}
+.sample-note{font-size:13.5px;color:var(--soft);letter-spacing:.04em;margin-top:10px}
+@media (max-width:720px){ .team-grid{grid-template-columns:repeat(2,1fr)} }
 </style>
 </head>
 <body>
@@ -43,8 +53,22 @@ footer a{color:#EDE7DC;text-decoration:none;border-bottom:1px solid rgba(169,139
 <div class="label">The Team</div>
 <h1>The people behind <em>the chair.</em></h1>
 <div class="rule"></div>
-<div class="mock-card"><div class="label">Mockup</div>
-<p style="margin-top:14px">This page is not complete. Names and portraits of the house are being gathered with Lazaro, and will live here soon.</p></div>
+<p class="sample-note">Twenty chairs, one house. A sample of the page &mdash; portraits and names join as the house provides them.</p>
+
+<div class="sec-label">Operations</div>
+<div class="ops-one"><div class="member"><div class="portrait"></div><h3>Lazaro</h3><div class="role">Operations Director</div><div class="mini-rule"></div></div></div>
+
+<div class="sec-label">Colour</div>
+<div class="team-grid"><div class="member"><div class="portrait"></div><h3>Head Colorist</h3><div class="mini-rule"></div></div><div class="member"><div class="portrait"></div><h3>Colorist</h3><div class="mini-rule"></div></div><div class="member"><div class="portrait"></div><h3>Colorist</h3><div class="mini-rule"></div></div></div>
+
+<div class="sec-label">Stylists</div>
+<div class="team-grid"><div class="member"><div class="portrait"></div><h3>Master Stylist</h3><div class="mini-rule"></div></div><div class="member"><div class="portrait"></div><h3>Stylist</h3><div class="mini-rule"></div></div><div class="member"><div class="portrait"></div><h3>Stylist</h3><div class="mini-rule"></div></div></div>
+
+<div class="sec-label">Skin &amp; Spa</div>
+<div class="team-grid"><div class="member"><div class="portrait"></div><h3>Esthetician</h3><div class="mini-rule"></div></div><div class="member"><div class="portrait"></div><h3>Massage Therapist</h3><div class="mini-rule"></div></div><div class="member"><div class="portrait"></div><h3>Spa Therapist</h3><div class="mini-rule"></div></div></div>
+
+<div class="sec-label">Nails</div>
+<div class="team-grid"><div class="member"><div class="portrait"></div><h3>Master Nail Technician</h3><div class="mini-rule"></div></div><div class="member"><div class="portrait"></div><h3>Nail Artist</h3><div class="mini-rule"></div></div><div class="member"><div class="portrait"></div><h3>Nail Technician</h3><div class="mini-rule"></div></div></div>
 <div class="backline"><a href="index.html">&larr; Return to the salon</a></div>
 </main>
 <footer>Armin Salon &amp; Rejuvenation Center &middot; South Miami<br><a href="index.html">arminspa.com</a></footer>
