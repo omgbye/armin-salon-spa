@@ -268,8 +268,18 @@
     .menu-overlay{display:block;position:fixed;inset:0;z-index:145;background:var(--ivory);opacity:0;visibility:hidden;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease,visibility 0s linear .5s;overflow-y:auto}
     .menu-overlay.open{opacity:1;visibility:visible;transform:none;transition:opacity .5s ease,transform .5s ease}
     .menu-top{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid var(--line)}
-    .menu-links{padding:36px 24px 18px;text-align:center}
+    .menu-links{padding:28px 26px 12px;text-align:left;max-width:520px;margin:0 auto}
     .menu-links a{display:block;font-family:"Cormorant Garamond",serif;font-size:36px;font-weight:500;color:var(--ink);text-decoration:none;padding:10px 0}
+    .menu-group{display:flex;align-items:center;gap:16px;font-size:10px;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);margin:28px 0 6px}
+    .menu-group:first-child{margin-top:4px}
+    .menu-group::after{content:'';flex:1;height:1px;background:var(--line)}
+    .menu-links a.svc-link{padding:13px 2px 12px;border-bottom:1px solid var(--line)}
+    .ml-row{display:flex;justify-content:space-between;align-items:baseline}
+    .ml-name{font-family:"Cormorant Garamond",serif;font-size:29px;font-weight:500;color:var(--ink)}
+    .ml-arrow{color:var(--gold);font-size:17px;font-family:"Jost",sans-serif}
+    .ml-sub{display:block;margin-top:3px;font-size:9.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--soft);font-family:"Jost",sans-serif}
+    .menu-links a.page-link{display:flex;justify-content:space-between;align-items:baseline;font-size:21.5px;padding:11px 2px;border-bottom:1px solid var(--line)}
+    .menu-links a.page-link .ml-arrow{font-size:14px}
     .menu-foot{text-align:center;padding:24px 24px 44px;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--soft);line-height:2.2}
   }
 
@@ -1038,17 +1048,19 @@ footer{padding:88px 5vw 42px}
 <div class="menu-overlay" id="menuOverlay">
   <div class="menu-top"><span class="panel-mark" role="button" tabindex="0" title="Back to home">Armin</span><button class="panel-close" id="menuClose">&#10005; &nbsp;Close</button></div>
   <nav class="menu-links">
-    <a href="#hair" data-open="hair">Hair</a>
-
-
-
-    <a href="#colour" data-open="colour">Colour</a>
-    <a href="#skin" data-open="skin">Skin &amp; Spa</a>
-    <a href="#nails" data-open="nails">Nails</a>
-    <a href="#occasions" data-open="occasions">Occasions</a>
-    <a href="#rejuvenation" data-open="rejuvenation">Rejuvenation</a>
-    <a href="#products" data-scroll>Products</a>
-    <a href="#visit" data-scroll>Visit</a>
+    <div class="menu-group">Services</div>
+    <a class="svc-link" href="#hair" data-open="hair"><span class="ml-row"><span class="ml-name">Hair</span><span class="ml-arrow">&rarr;</span></span><span class="ml-sub">Cuts &middot; Blowout &middot; Styling</span></a>
+    <a class="svc-link" href="#colour" data-open="colour"><span class="ml-row"><span class="ml-name">Colour</span><span class="ml-arrow">&rarr;</span></span><span class="ml-sub">Balayage &middot; Blonde &middot; Gloss</span></a>
+    <a class="svc-link" href="#skin" data-open="skin"><span class="ml-row"><span class="ml-name">Skin &amp; Spa</span><span class="ml-arrow">&rarr;</span></span><span class="ml-sub">Facials &middot; Massage &middot; Waxing</span></a>
+    <a class="svc-link" href="#nails" data-open="nails"><span class="ml-row"><span class="ml-name">Nails</span><span class="ml-arrow">&rarr;</span></span><span class="ml-sub">Acrylic &middot; Dip Powder &middot; Pedicure</span></a>
+    <a class="svc-link" href="#occasions" data-open="occasions"><span class="ml-row"><span class="ml-name">Occasions</span><span class="ml-arrow">&rarr;</span></span><span class="ml-sub">Makeup &middot; Bridal &middot; Packages</span></a>
+    <a class="svc-link" href="#rejuvenation" data-open="rejuvenation"><span class="ml-row"><span class="ml-name">Rejuvenation</span><span class="ml-arrow">&rarr;</span></span><span class="ml-sub">Spa Days &middot; Rituals</span></a>
+    <div class="menu-group">The Salon</div>
+    <a class="page-link" href="about.html">About<span class="ml-arrow">&rarr;</span></a>
+    <a class="page-link" href="team.html">Our Team<span class="ml-arrow">&rarr;</span></a>
+    <a class="page-link" href="careers.html">Careers<span class="ml-arrow">&rarr;</span></a>
+    <a class="page-link" href="#products" data-scroll>Products<span class="ml-arrow">&rarr;</span></a>
+    <a class="page-link" href="#visit" data-scroll>Visit<span class="ml-arrow">&rarr;</span></a>
   </nav>
   <div class="menu-foot">5910 SW 73rd Street · South Miami<br><a href="tel:+13056637171" style="color:var(--clay);text-decoration:none">305-663-7171</a></div>
 </div>
