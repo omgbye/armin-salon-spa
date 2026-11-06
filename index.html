@@ -382,34 +382,6 @@
 .svc-marquee.hold .svc-track{animation-play-state:paused}
 .svc-track .svc a.reserve-link, .svc-track .svc h3, .svc-track .svc .svc-photo{cursor:pointer}
 
-/* hero — the Corvette: layered painting; parked, then a slow forward drive away, gone, and quietly back */
-.art-hero{position:relative}
-.hero-carwrap{position:absolute;top:0;bottom:0;left:14px;right:14px;animation:driveAway 36s linear infinite;will-change:transform}
-.hero-carwrap .hero-car{height:100%}
-.hero-palm{position:absolute;top:0;left:14px;right:14px;width:auto}
-@keyframes driveAway{
-  0%,55%{transform:translateX(0);opacity:1}
-  55%{animation-timing-function:cubic-bezier(.5,.08,.55,.94)}
-  76%{transform:translateX(-112%) translateY(5px);opacity:1}
-  86%{transform:translateX(-112%) translateY(5px);opacity:1}
-  86.5%{transform:translateX(-112%) translateY(5px);opacity:0}
-  87%{transform:translateX(0);opacity:0}
-  95%,100%{transform:translateX(0);opacity:1}
-}
-@media (max-width:720px){
-  .art-hero img{object-position:96% center}
-  .hero-carwrap{animation-name:driveAwayM}
-  @keyframes driveAwayM{
-    0%,55%{transform:translateX(0);opacity:1}
-    55%{animation-timing-function:cubic-bezier(.5,.08,.55,.94)}
-    76%{transform:translateX(-185%) translateY(5px);opacity:1}
-    86%{transform:translateX(-185%) translateY(5px);opacity:1}
-    86.5%{transform:translateX(-185%) translateY(5px);opacity:0}
-    87%{transform:translateX(0);opacity:0}
-    95%,100%{transform:translateX(0);opacity:1}
-  }
-}
-@media (prefers-reduced-motion: reduce){ .hero-carwrap{animation:none} }
 </style>
 <script type="application/ld+json">{
   "@context": "https://schema.org",
@@ -506,9 +478,7 @@
 </header>
 
 <section class="art-hero">
-  <img class="hero-plate" fetchpriority="high" src="hero-plate.jpg" alt="A watercolor painting of the Armin Salon storefront and palms">
-  <div class="hero-carwrap" aria-hidden="true"><img class="hero-car" src="car-sprite.webp" alt=""></div>
-  <img class="hero-palm" src="hero-palm.webp" alt="" aria-hidden="true">
+  <img fetchpriority="high" src="a-watercolor-painting-of-the-armin-salon-s.jpg" alt="A watercolor painting of the Armin Salon storefront, palms and a classic red convertible out front">
 </section>
 <section class="intro-block">
   <div class="intro-est">South Miami</div>
