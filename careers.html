@@ -38,6 +38,33 @@ footer a{color:#EDE7DC;text-decoration:none;border-bottom:1px solid rgba(169,139
 .art-frame{max-width:540px;margin:6px auto 34px;background:#FFFDF8;border:1px solid rgba(169,139,95,.55);padding:12px;box-shadow:0 30px 50px -28px rgba(29,26,22,.35), inset 0 0 0 1px #FFFDF8, inset 0 0 0 3px rgba(169,139,95,.30)}
 .art-frame img{display:block;width:100%;height:auto}
 .art-frame figcaption{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:18.5px;color:#6E6252;text-align:center;padding:14px 6px 16px}
+
+.apply{margin-top:64px;text-align:left}
+.apply .label{display:block;text-align:center}
+.apply h2{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:clamp(30px,4.6vw,42px);text-align:center;margin:14px 0 6px}
+.apply .rule{margin:22px auto 34px}
+.f-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.f-field{display:flex;flex-direction:column;gap:7px}
+.f-field.full{grid-column:1/-1}
+.f-field label{font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);font-weight:500}
+.f-field input,.f-field select{font:400 15.5px "Jost",sans-serif;color:var(--ink);background:#FFFDF8;border:1px solid var(--line);padding:14px 16px;border-radius:2px;outline:none;width:100%}
+.f-field input:focus,.f-field select:focus{border-color:var(--gold)}
+.f-field select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23A98B5F' stroke-width='1.6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;cursor:pointer}
+.ig-wrap{position:relative}
+.ig-wrap span{position:absolute;left:16px;top:50%;transform:translateY(-50%);color:var(--soft);font-size:15.5px}
+.ig-wrap input{padding-left:32px}
+.upload{border:1.5px dashed rgba(169,139,95,.65);background:#FFFDF8;padding:30px 22px;text-align:center;cursor:pointer;transition:border-color .25s, background .25s}
+.upload:hover,.upload.drag{border-color:var(--clay);background:#FBF4E8}
+.upload b{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:21px;display:block}
+.upload small{color:var(--soft);font-size:13px;letter-spacing:.03em}
+.upload input{display:none}
+.file-list{margin-top:12px;font-size:13.5px;color:var(--soft);line-height:1.7}
+.apply-btn{margin-top:22px;width:100%;text-align:center;cursor:pointer;border:1px solid #E9B877}
+.apply-done{display:none;text-align:center;padding:38px 26px;border:1px solid rgba(169,139,95,.55);background:#FFFDF8}
+.apply-done.show{display:block}
+.apply-done b{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:26px;display:block;margin-bottom:10px}
+.apply-done p{font-size:15px;margin:0 auto}
+@media (max-width:640px){ .f-grid{grid-template-columns:1fr} }
 </style>
 </head>
 <body>
@@ -54,6 +81,60 @@ footer a{color:#EDE7DC;text-decoration:none;border-bottom:1px solid rgba(169,139
 <p>Inside, you will find what the address promises: a house run like a family, clients who have stayed for decades, the latest treatment technology, and a standard of craft that has made Armin the name this street trusts.</p>
 <p style="margin-top:30px">If you have a clientele of your own, and you are ready to give them a finer room — and yourself a finer address — we should talk. Speak with <b>Lazaro</b>, our Operations Director.</p>
 <a class="btn" href="tel:+13056637171">Call 305-663-7171</a>
+
+<div class="apply" id="apply">
+  <span class="label">Application</span>
+  <h2>Apply here.</h2>
+  <div class="rule"></div>
+  <form id="applyForm" novalidate>
+    <div class="f-grid">
+      <div class="f-field"><label for="apName">Full name</label><input id="apName" type="text" autocomplete="name" placeholder="Your full name"></div>
+      <div class="f-field"><label for="apEmail">Email</label><input id="apEmail" type="email" autocomplete="email" placeholder="you@example.com"></div>
+      <div class="f-field"><label for="apRole">I am a</label>
+        <select id="apRole">
+          <option value="">Select your trade</option>
+          <option>Hairstylist</option><option>Colorist</option><option>Nail Technician</option>
+          <option>Esthetician</option><option>Massage Therapist</option><option>Makeup Artist</option>
+          <option>Front Desk</option><option>Other</option>
+        </select></div>
+      <div class="f-field"><label for="apYears">Years of experience</label>
+        <select id="apYears">
+          <option value="">Select a range</option>
+          <option>0–1 years</option><option>2–4 years</option><option>5–9 years</option>
+          <option>10–15 years</option><option>15+ years</option>
+        </select></div>
+      <div class="f-field full"><label for="apIg">Instagram</label>
+        <div class="ig-wrap"><span>@</span><input id="apIg" type="text" placeholder="yourhandle" autocomplete="off"></div></div>
+      <div class="f-field full"><label>Résumé or examples of your work</label>
+        <label class="upload" id="uploadZone" for="apFiles"><b>Drop files here, or click to browse</b><small>Résumé (PDF) and photos of your work are both welcome.</small><input id="apFiles" type="file" multiple accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.webp"></label>
+        <div class="file-list" id="fileList"></div></div>
+    </div>
+    <button type="submit" class="btn apply-btn">Submit Application</button>
+  </form>
+  <div class="apply-done" id="applyDone">
+    <b>Thank you.</b>
+    <p>Applications are being taken by phone while this page is finished. Call <a href="tel:+13056637171" style="color:var(--clay)">305-663-7171</a> and ask for Lazaro.</p>
+  </div>
+</div>
+<script>
+(function(){
+  var zone = document.getElementById('uploadZone'), input = document.getElementById('apFiles'), list = document.getElementById('fileList');
+  function showFiles(){ var f = input.files, out = []; for(var i=0;i<f.length;i++){ out.push(f[i].name); } list.textContent = out.length ? 'Attached: ' + out.join(' \u00b7 ') : ''; }
+  input.addEventListener('change', showFiles);
+  ['dragover','dragenter'].forEach(function(ev){ zone.addEventListener(ev, function(e){ e.preventDefault(); zone.classList.add('drag'); }); });
+  ['dragleave','drop'].forEach(function(ev){ zone.addEventListener(ev, function(e){ e.preventDefault(); zone.classList.remove('drag'); }); });
+  zone.addEventListener('drop', function(e){ if(e.dataTransfer && e.dataTransfer.files.length){ input.files = e.dataTransfer.files; showFiles(); } });
+  document.getElementById('applyForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    var name = document.getElementById('apName'), email = document.getElementById('apEmail'), role = document.getElementById('apRole');
+    if(name.value.trim().length < 2){ name.focus(); return; }
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email.value.trim())){ email.focus(); return; }
+    if(!role.value){ role.focus(); return; }
+    this.style.display = 'none';
+    document.getElementById('applyDone').classList.add('show');
+  });
+})();
+</script>
 <div class="backline"><a href="index.html">&larr; Return to the salon</a></div>
 </main>
 <footer>Armin Salon &amp; Rejuvenation Center &middot; South Miami<br><a href="index.html">arminspa.com</a></footer>
