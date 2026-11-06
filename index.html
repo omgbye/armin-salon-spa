@@ -356,15 +356,14 @@
   .services-head .rule{margin:22px auto 0}
   .services-sub{max-width:520px;margin:18px auto 0;color:#4A443C;font-size:16px;line-height:1.8}
   .svc-marquee{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
-  .svc-track{display:flex;gap:26px;width:max-content;padding:4px 2px 12px;animation:svcMove 58s linear infinite;will-change:transform}
-  @media (hover:hover) and (pointer:fine){ .svc-marquee:hover .svc-track{animation-play-state:paused} }
+  .svc-track{display:flex;gap:26px;width:max-content;padding:4px 2px 12px;will-change:transform}
+  
   .svc-track .svc{flex:0 0 338px}
   .svc-track .svc-photo{height:288px}
-  @keyframes svcMove{to{transform:translateX(-50%)}}
   @media (max-width:720px){
     .motif{opacity:.09}
     .motif-comb{width:52px}.motif-scissors{width:84px}.motif-dryer{width:92px}.motif-hair{width:60px}
-    .svc-track{gap:18px;animation-duration:42s}
+    .svc-track{gap:18px}
     .svc-track .svc{flex-basis:262px}
     .svc-track .svc-photo{height:230px}
   }
@@ -392,7 +391,9 @@
 }
 @media (prefers-reduced-motion: reduce){ .svc-track{animation-duration:200s} }
 
-.svc-marquee.hold .svc-track{animation-play-state:paused}
+.svc-marquee{touch-action:pan-y;cursor:grab}
+.svc-marquee.dragging{cursor:grabbing}
+.svc-marquee .svc{user-select:none;-webkit-user-select:none}
 .svc-track .svc a.reserve-link, .svc-track .svc h3, .svc-track .svc .svc-photo{cursor:pointer}
 
 
@@ -1251,13 +1252,41 @@ footer{padding:88px 5vw 42px}
 <script>
 (function(){
   var mq = document.querySelector('.svc-marquee'); if(!mq) return;
-  var t;
-  function hold(){ mq.classList.add('hold'); clearTimeout(t); }
-  function release(){ clearTimeout(t); t = setTimeout(function(){ mq.classList.remove('hold'); }, 2200); }
-  mq.addEventListener('touchstart', hold, {passive:true});
-  mq.addEventListener('touchend', release, {passive:true});
-  mq.addEventListener('pointerdown', hold);
-  mq.addEventListener('pointerup', release);
+  var track = mq.querySelector('.svc-track'); if(!track) return;
+  var offset = 0, last = null, hoverPause = false, dragging = false;
+  var SPEED = 38;
+  function setWidth(){ return track.scrollWidth / 2; }
+  function wrap(){ var w = setWidth(); if(!w) return; while(offset <= -w) offset += w; while(offset > 0) offset -= w; }
+  function apply(){ track.style.transform = 'translateX(' + offset + 'px)'; }
+  function frame(ts){
+    if(last == null) last = ts;
+    var dt = Math.min((ts - last) / 1000, 0.05); last = ts;
+    if(!hoverPause && !dragging){ offset -= SPEED * dt; wrap(); apply(); }
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+  if(window.matchMedia('(hover:hover) and (pointer:fine)').matches){
+    mq.addEventListener('mouseenter', function(){ hoverPause = true; });
+    mq.addEventListener('mouseleave', function(){ hoverPause = false; });
+  }
+  var startX = 0, startOffset = 0, moved = 0;
+  mq.addEventListener('pointerdown', function(e){
+    dragging = true; moved = 0; startX = e.clientX; startOffset = offset;
+    mq.classList.add('dragging');
+    try{ mq.setPointerCapture(e.pointerId); }catch(_){}
+  });
+  mq.addEventListener('pointermove', function(e){
+    if(!dragging) return;
+    var dx = e.clientX - startX;
+    if(Math.abs(dx) > moved) moved = Math.abs(dx);
+    offset = startOffset + dx; wrap(); apply();
+  });
+  function endDrag(){ dragging = false; mq.classList.remove('dragging'); }
+  mq.addEventListener('pointerup', endDrag);
+  mq.addEventListener('pointercancel', endDrag);
+  mq.addEventListener('click', function(e){
+    if(moved > 8){ e.preventDefault(); e.stopPropagation(); moved = 0; }
+  }, true);
 })();
 </script>
 <script>
