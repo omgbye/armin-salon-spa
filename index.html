@@ -441,6 +441,21 @@
 @media (max-width:980px){ .panel-body.has-reviews{grid-template-columns:1fr;gap:8px} .panel-reviews{border-left:none;border-top:1px solid rgba(169,139,95,.4);padding-left:0;padding-top:34px;margin-top:26px} }
 
 .panel-body.has-reviews .panel-main p{margin-left:0;margin-right:0;text-align:left}
+
+.text-link{color:var(--clay);text-decoration:none;border-bottom:1px solid var(--gold);padding-bottom:2px;font-size:13px;letter-spacing:.22em;text-transform:uppercase}
+footer{padding:88px 5vw 42px}
+.foot-top{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1.15fr 2fr;gap:64px;text-align:left}
+.foot-mark{font-size:clamp(40px,4.4vw,60px);letter-spacing:.34em;text-indent:0}
+.foot-sub{margin-top:14px}
+.foot-tag{margin-top:22px;font-family:"Cormorant Garamond",serif;font-style:italic;font-size:19px;line-height:1.6;color:#CFC5B4;max-width:340px}
+.foot-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:42px}
+.foot-col h4{font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:18px}
+.foot-col p{font-size:14.5px;line-height:1.95;color:#CFC5B4;margin-bottom:10px}
+.foot-link{color:#EDE7DC;text-decoration:none;border-bottom:1px solid rgba(169,139,95,.65);padding-bottom:2px}
+.foot-bar{max-width:1240px;margin:58px auto 0;padding-top:26px;border-top:1px solid rgba(237,231,220,.16);display:flex;justify-content:space-between;align-items:center;gap:16px 28px;flex-wrap:wrap;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#A79B8A}
+.foot-bar .foot-legal{margin-top:0}
+.foot-note{text-align:center}
+@media (max-width:900px){ footer{padding:64px 24px 40px} .foot-top{grid-template-columns:1fr;gap:44px;text-align:center} .foot-tag{margin-left:auto;margin-right:auto} .foot-cols{grid-template-columns:1fr;gap:34px} .foot-bar{justify-content:center;text-align:center} }
 </style>
 <script type="application/ld+json">{
   "@context": "https://schema.org",
@@ -679,7 +694,7 @@
   <div class="gallery-head">
     <div class="label">From the Salon</div>
     <h2>As it happens, at Armin</h2>
-    <p style="color:var(--soft);margin-top:12px">Follow along — <a href="https://www.instagram.com/arminsalon.spa/">@arminsalon.spa</a></p>
+    <p style="color:var(--soft);margin-top:12px">Follow along — <a href="https://www.instagram.com/arminsalon.spa/">@arminsalon.spa on Instagram</a></p>
   </div>
   <div class="gallery-grid">
     <a href="https://www.instagram.com/p/BYVqkLiFW-h/"><img loading="lazy" decoding="async" src="armin-with-a-guest-her-colour-finished.jpg" alt="Armin with a guest, her colour finished"></a>
@@ -713,6 +728,7 @@
     <p class="visit-address">5910 SW 73rd Street<br>South Miami, Florida 33143</p>
     <p>Just off US-1, serving South Miami, Coral Gables, and Coconut Grove. To reserve, simply call — we will take care of the rest.</p>
     <a class="btn btn-luxe" href="tel:+13056637171">Call 305-663-7171</a>
+    <p style="margin-top:18px"><a class="text-link" href="https://www.google.com/maps/search/?api=1&amp;query=Armin+Salon+%26+Rejuvenation+5910+SW+73rd+St+South+Miami+FL+33143">Get directions to the salon</a></p>
     <div class="door"><img loading="lazy" decoding="async" src="the-front-door-of-armin-salon-and-spa.jpg" alt="The front door of Armin Salon and Spa"></div>
   </div>
 </section>
@@ -737,14 +753,36 @@
   <a class="soc" href="https://www.instagram.com/arminsalon.spa/" target="_blank" rel="noopener" aria-label="Instagram — @arminsalon.spa"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.05" fill="currentColor" stroke="none"/></svg></a>
 </section>
 <footer>
-  <div class="foot-mark">Armin</div>
-  <div class="foot-sub">Salon &amp; Rejuvenation</div>
-  
-  <div class="foot-rule"></div>
-  <div class="foot-row"><span>5910 SW 73rd St, South Miami</span><span>305-663-7171</span><span><a href="https://www.instagram.com/arminsalon.spa/" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--gold)">Instagram — @arminsalon.spa</a></span></div>
-  <p class="foot-credit">Website created by Angel Reyes — Demo</p>
+  <div class="foot-top">
+    <div class="foot-brand">
+      <div class="foot-mark">Armin</div>
+      <div class="foot-sub">Salon &amp; Rejuvenation</div>
+      <p class="foot-tag">Hair, skin, and nails, composed in a single visit — in the heart of South Miami.</p>
+    </div>
+    <div class="foot-cols">
+      <div class="foot-col">
+        <h4>Visit</h4>
+        <p>5910 SW 73rd Street<br>South Miami, Florida 33143</p>
+        <p><a class="foot-link" href="https://www.google.com/maps/search/?api=1&amp;query=Armin+Salon+%26+Rejuvenation+5910+SW+73rd+St+South+Miami+FL+33143">Get Directions</a></p>
+      </div>
+      <div class="foot-col">
+        <h4>Hours</h4>
+        <p>Tuesday — Wednesday · 9 am — 7 pm<br>Thursday — Friday · 9 am — 8 pm<br>Saturday · 9 am — 7 pm<br>Sunday — Monday · By appointment</p>
+      </div>
+      <div class="foot-col">
+        <h4>Connect</h4>
+        <p><a class="foot-link" href="tel:+13056637171">Call 305-663-7171</a></p>
+        <p><a class="foot-link" href="https://www.instagram.com/arminsalon.spa/">Instagram — @arminsalon.spa</a></p>
+        <p><a class="foot-link" href="https://www.facebook.com/arminsalon/">Facebook — Armin Salon</a></p>
+      </div>
+    </div>
+  </div>
+  <div class="foot-bar">
+    <span>&copy; 2026 Armin Salon &amp; Rejuvenation</span>
+    <span class="foot-legal"><a href="privacy.html">Privacy Policy</a><span aria-hidden="true">&middot;</span><a href="terms.html">Terms of Use</a></span>
+    <span>Website created by Angel Reyes — Demo</span>
+  </div>
   <p class="foot-note">Photography is the salon&rsquo;s own, from its Instagram @arminsalon.spa</p>
-  <p class="foot-legal"><a href="privacy.html">Privacy Policy</a><span aria-hidden="true">·</span><a href="terms.html">Terms of Use</a></p>
 </footer>
 
 
