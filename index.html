@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Armin Salon &amp; Rejuvenation — Hair, Colour, Skin &amp; Nails · South Miami</title>
 <meta name="description" content="Armin Salon & Rejuvenation in South Miami — precision haircuts, expert colour, facials, massage and nails, minutes from Coral Gables and Coconut Grove. By appointment: (305) 663-7171.">
 <meta name="robots" content="index, follow">
@@ -46,6 +46,9 @@
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{background:var(--ivory);color:var(--ink);font-family:"Jost",sans-serif;font-weight:300;-webkit-font-smoothing:antialiased}
+  /* frame lock: the page holds its composition — no sideways drift, no gesture zoom */
+  html,body{overflow-x:hidden}
+  body{touch-action:pan-y}
   .serif{font-family:"Cormorant Garamond",serif}
   .label{font-size:11px;letter-spacing:.38em;text-transform:uppercase;color:var(--gold);font-weight:500}
   a{color:inherit}
@@ -1089,6 +1092,11 @@
   mq.addEventListener('pointerdown', hold);
   mq.addEventListener('pointerup', release);
 })();
+</script>
+<script>
+// frame lock: a two-finger pinch is ignored, so the page never leaves its frame; single-finger scrolling is untouched
+document.addEventListener('touchmove', function(e){ if(e.touches.length > 1){ e.preventDefault(); } }, {passive:false});
+document.addEventListener('gesturestart', function(e){ e.preventDefault(); });
 </script>
 </body>
 </html>
