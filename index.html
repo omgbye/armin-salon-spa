@@ -353,6 +353,28 @@
     .svc-track .svc-photo{height:230px}
   }
   @media (prefers-reduced-motion: reduce){ .svc-track{animation-duration:160s} .motif .float{animation:none} }
+
+/* services — modern pass: full-bleed photo cards, type on image, pill buttons, slower glide, seamless loop */
+.svc-track{animation-duration:88s;gap:0;padding:10px 2px 26px}
+.svc-track .svc{flex:0 0 auto;width:356px;height:476px;padding-right:24px;box-sizing:border-box;position:relative;display:flex;flex-direction:column;justify-content:flex-end;align-items:flex-start;text-align:left}
+.svc-track .svc-photo{position:absolute;top:0;left:0;bottom:0;width:calc(100% - 24px);height:auto;border-radius:16px;box-shadow:0 24px 48px -24px rgba(29,26,22,.38)}
+.svc-track .svc-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(24,19,14,0) 40%,rgba(24,19,14,.32) 66%,rgba(24,19,14,.8) 100%)}
+.svc-track .svc-photo img{width:100%;height:100%;object-fit:cover;filter:saturate(.94) contrast(1.04);transform:scale(1.03)}
+.svc-track .svc:hover .svc-photo img{transform:scale(1.08)}
+.svc-track .svc .items{order:1;position:relative;z-index:2;color:rgba(251,247,239,.85);font-size:10.5px;letter-spacing:.24em;margin:0 0 7px 22px;text-align:left}
+.svc-track .svc h3{order:2;position:relative;z-index:2;color:#FBF7EF;font-size:38px;line-height:1.04;margin:0 0 15px 22px;text-align:left}
+.svc-track .svc p{display:none}
+.svc-track .svc a.reserve-link{order:3;position:relative;z-index:2;margin:0 0 24px 22px;display:inline-block;padding:11px 24px;border-radius:999px;background:rgba(251,247,239,.16);border:1px solid rgba(251,247,239,.55);color:#fff;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;text-decoration:none}
+.svc-track .svc a.reserve-link:hover{background:rgba(251,247,239,.3);color:#fff;border-color:rgba(251,247,239,.8)}
+@media (max-width:720px){
+  .svc-track{animation-duration:72s}
+  .svc-track .svc{width:298px;height:430px;padding-right:18px}
+  .svc-track .svc-photo{width:calc(100% - 18px);border-radius:14px}
+  .svc-track .svc h3{font-size:32px;margin-left:19px}
+  .svc-track .svc .items{margin-left:19px}
+  .svc-track .svc a.reserve-link{margin-left:19px;margin-bottom:20px}
+}
+@media (prefers-reduced-motion: reduce){ .svc-track{animation-duration:200s} }
 </style>
 <script type="application/ld+json">{
   "@context": "https://schema.org",
@@ -477,35 +499,35 @@
       <h3>Hair</h3>
       <div class="items">Cuts · Blowout · Styling</div>
       <p>The cut and finish the neighbourhood trusts — polished, wearable, unmistakably yours.</p>
-      <a class="reserve-link" href="#book" data-book>Reserve Hair</a>
+      <a class="reserve-link" href="#book" data-book>Reserve</a>
     </article>
 <article class="svc" data-open="colour">
       <div class="svc-photo"><img loading="lazy" decoding="async" src="copper-colour-finished-at-armin-salon.jpg" alt="Copper colour, finished at Armin Salon"></div>
       <h3>Colour</h3>
       <div class="items">Balayage · Face-Framing · Blonde Refresh</div>
       <p>Colour with dimension and light in it — soft where it should be, bright where it counts.</p>
-      <a class="reserve-link" href="#book" data-book>Reserve Colour</a>
+      <a class="reserve-link" href="#book" data-book>Reserve</a>
     </article>
 <article class="svc" data-open="skin">
       <div class="svc-photo"><img loading="lazy" decoding="async" src="a-facial-treatment-at-the-salon.jpg" alt="A facial treatment at the salon"></div>
       <h3>Skin &amp; Spa</h3>
       <div class="items">Facials · Massage · Waxing</div>
       <p>Quiet rooms, warm hands, and skin that looks rested — because it finally is.</p>
-      <a class="reserve-link" href="#book" data-book>Reserve Skin</a>
+      <a class="reserve-link" href="#book" data-book>Reserve</a>
     </article>
 <article class="svc" data-open="nails">
       <div class="svc-photo"><img loading="lazy" decoding="async" src="a-finished-manicure-at-armin-salon.jpg" alt="A finished manicure at Armin Salon"></div>
       <h3>Nails</h3>
       <div class="items">Acrylic · Dip Powder · Manicure &amp; Pedicure</div>
       <p>Immaculate, understated, and finished properly — down to the last detail.</p>
-      <a class="reserve-link" href="#book" data-book>Reserve Nails</a>
+      <a class="reserve-link" href="#book" data-book>Reserve</a>
     </article>
 <article class="svc" data-open="occasions">
       <div class="svc-photo"><img loading="lazy" decoding="async" src="an-evening-updo-styled-at-armin-salon.jpg" alt="An evening updo, styled at Armin Salon"></div>
       <h3>Occasions</h3>
       <div class="items">Makeup · Bridal · Packages</div>
       <p>For the evenings that matter — composed, photographed beautifully, and entirely you.</p>
-      <a class="reserve-link" href="#book" data-book>Reserve the Occasion</a>
+      <a class="reserve-link" href="#book" data-book>Reserve</a>
     </article>
 <article class="svc" data-open="rejuvenation">
       <div class="svc-photo"><img loading="lazy" decoding="async" src="a-blonde-bob-cut-and-finished-at-armin-sal.jpg" alt="A blonde bob, cut and finished at Armin Salon"></div>
@@ -519,35 +541,35 @@
       <h3>Hair</h3>
       <div class="items">Cuts · Blowout · Styling</div>
       <p>The cut and finish the neighbourhood trusts — polished, wearable, unmistakably yours.</p>
-      <a class="reserve-link" href="#book" data-book>Reserve Hair</a>
+      <a class="reserve-link" href="#book" data-book>Reserve</a>
     </article>
 <article class="svc" aria-hidden="true" data-open="colour">
       <div class="svc-photo"><img loading="lazy" decoding="async" src="copper-colour-finished-at-armin-salon.jpg" alt="Copper colour, finished at Armin Salon"></div>
       <h3>Colour</h3>
       <div class="items">Balayage · Face-Framing · Blonde Refresh</div>
       <p>Colour with dimension and light in it — soft where it should be, bright where it counts.</p>
-      <a class="reserve-link" href="#book" data-book>Reserve Colour</a>
+      <a class="reserve-link" href="#book" data-book>Reserve</a>
     </article>
 <article class="svc" aria-hidden="true" data-open="skin">
       <div class="svc-photo"><img loading="lazy" decoding="async" src="a-facial-treatment-at-the-salon.jpg" alt="A facial treatment at the salon"></div>
       <h3>Skin &amp; Spa</h3>
       <div class="items">Facials · Massage · Waxing</div>
       <p>Quiet rooms, warm hands, and skin that looks rested — because it finally is.</p>
-      <a class="reserve-link" href="#book" data-book>Reserve Skin</a>
+      <a class="reserve-link" href="#book" data-book>Reserve</a>
     </article>
 <article class="svc" aria-hidden="true" data-open="nails">
       <div class="svc-photo"><img loading="lazy" decoding="async" src="a-finished-manicure-at-armin-salon.jpg" alt="A finished manicure at Armin Salon"></div>
       <h3>Nails</h3>
       <div class="items">Acrylic · Dip Powder · Manicure &amp; Pedicure</div>
       <p>Immaculate, understated, and finished properly — down to the last detail.</p>
-      <a class="reserve-link" href="#book" data-book>Reserve Nails</a>
+      <a class="reserve-link" href="#book" data-book>Reserve</a>
     </article>
 <article class="svc" aria-hidden="true" data-open="occasions">
       <div class="svc-photo"><img loading="lazy" decoding="async" src="an-evening-updo-styled-at-armin-salon.jpg" alt="An evening updo, styled at Armin Salon"></div>
       <h3>Occasions</h3>
       <div class="items">Makeup · Bridal · Packages</div>
       <p>For the evenings that matter — composed, photographed beautifully, and entirely you.</p>
-      <a class="reserve-link" href="#book" data-book>Reserve the Occasion</a>
+      <a class="reserve-link" href="#book" data-book>Reserve</a>
     </article>
 <article class="svc" aria-hidden="true" data-open="rejuvenation">
       <div class="svc-photo"><img loading="lazy" decoding="async" src="a-blonde-bob-cut-and-finished-at-armin-sal.jpg" alt="A blonde bob, cut and finished at Armin Salon"></div>
@@ -650,7 +672,7 @@
         <img loading="lazy" decoding="async" src="a-styled-cut-with-volume-2.jpg" alt="A styled cut with volume">
         <img loading="lazy" decoding="async" src="blonde-finished-in-the-chair.jpg" alt="Blonde, finished in the chair">
     </div>
-    <a class="btn btn-luxe" href="#book" data-book>Reserve Hair</a>
+    <a class="btn btn-luxe" href="#book" data-book>Reserve</a>
     <div class="panel-foot">Armin — Salon &amp; Rejuvenation · South Miami</div>
   </div>
 </div>
@@ -675,7 +697,7 @@
         <img loading="lazy" decoding="async" src="highlights-finished.jpg" alt="Highlights, finished">
         <img loading="lazy" decoding="async" src="long-blonde-finished.jpg" alt="Long blonde, finished">
     </div>
-    <a class="btn btn-luxe" href="#book" data-book>Reserve Colour</a>
+    <a class="btn btn-luxe" href="#book" data-book>Reserve</a>
     <div class="panel-foot">Armin — Salon &amp; Rejuvenation · South Miami</div>
   </div>
 </div>
@@ -698,7 +720,7 @@
         <img loading="lazy" decoding="async" src="a-guest-of-the-salon.jpg" alt="A guest of the salon">
         <img loading="lazy" decoding="async" src="makeup-and-skin-finished.jpg" alt="Makeup and skin, finished">
     </div>
-    <a class="btn btn-luxe" href="#book" data-book>Reserve Skin</a>
+    <a class="btn btn-luxe" href="#book" data-book>Reserve</a>
     <div class="panel-foot">Armin — Salon &amp; Rejuvenation · South Miami</div>
   </div>
 </div>
@@ -722,7 +744,7 @@
         <img loading="lazy" decoding="async" src="a-pale-manicure-finished.jpg" alt="A pale manicure, finished">
         <img loading="lazy" decoding="async" src="pink-with-a-plaid-detail.jpg" alt="Pink, with a plaid detail">
     </div>
-    <a class="btn btn-luxe" href="#book" data-book>Reserve Nails</a>
+    <a class="btn btn-luxe" href="#book" data-book>Reserve</a>
     <div class="panel-foot">Armin — Salon &amp; Rejuvenation · South Miami</div>
   </div>
 </div>
@@ -746,7 +768,7 @@
         <img loading="lazy" decoding="async" src="makeup-and-skin-finished.jpg" alt="Makeup, finished">
         <img loading="lazy" decoding="async" src="a-guest-of-the-salon.jpg" alt="Hair, finished for the evening">
     </div>
-    <a class="btn btn-luxe" href="#book" data-book>Reserve the Occasion</a>
+    <a class="btn btn-luxe" href="#book" data-book>Reserve</a>
     <div class="panel-foot">Armin — Salon &amp; Rejuvenation · South Miami</div>
   </div>
 </div>
